@@ -1,2 +1,5 @@
-events.json
 update.sh
+events.json
+events.json.old
+events.ics
+events.ics.old
