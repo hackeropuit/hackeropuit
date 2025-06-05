@@ -1,7 +1,14 @@
+# Specific events
 events/wiccon.yaml @elborro
 events/t-dose.yaml @xesxen
+events/bornhack.yaml @xesxen
 events/hackfest.yaml @zeno4ever
+events/hackerspacesnl.yaml @zeno4ever
 events/eth0.yaml @eloydegen
+events/eurobsdcon.yaml @mischapeters
+events/bsdnl.yaml @mischapeters
+events/revspace.yaml @juerd
 
+# Fallback/Default
 * @sigio
 .github/CODEOWNERS @sigio
