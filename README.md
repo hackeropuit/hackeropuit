@@ -8,6 +8,8 @@ Patches welcome ;) (Both in the code as with new events)
 
 https://github.com/revspace/hackeropuit/
 
+If requested, I can hand out write permissions (with codeowners) on specific event-files, so events can update these themselves.
+
 ## Example event data:
 
 ```yaml
