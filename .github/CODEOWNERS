@@ -3,5 +3,5 @@ events/t-dose.yaml @xesxen
 events/hackfest.yaml @zeno4ever
 events/eth0.yaml @eloydegen
 
-* sigio
+* @sigio
 .github/CODEOWNERS @sigio
