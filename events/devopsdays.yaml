@@ -34,3 +34,46 @@
   EndDate: 2023-09-22
   Comment: DevOpsConf
   URL: https://devopsdays.org/events/2023-london
+- Name: DevOpsDays Amsterdam
+  Location: Amsterdam, NL
+  StartDate: 2025-06-18
+  EndDate: 2025-06-20
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2025-amsterdam
+- Name: DevOpsDays Vilnius
+  Location: Vilnius, LT
+  StartDate: 2025-09-10
+  EndDate: 2025-09-11
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2025-vilnius
+- Name: DevOpsDays Ljubljana
+  Location: Ljubljana, SI
+  StartDate: 2025-09-13
+  EndDate: 2025-09-13
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2025-ljubljana
+- Name: DevOpsDays London
+  Location: London, UK
+  StartDate: 2025-09-23
+  EndDate: 2025-09-24
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2025-london
+- Name: DevOpsDays Istanbul
+  Location: Istanbul, TR
+  StartDate: 2025-11-01
+  EndDate: 2025-11-01
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2025-istanbul
+- Name: DevOpsDays Warsaw
+  Location: Warsaw, PL
+  StartDate: 2025-11-04
+  EndDate: 2025-11-05
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2025-warsaw
+- Name: DevOpsDays Zurich
+  Location: Zurich, CH
+  StartDate: 2026-05-06
+  EndDate: 2026-05-07
+  Comment: DevOpsConf
+  URL: https://devopsdays.org/events/2026-zurich
+
