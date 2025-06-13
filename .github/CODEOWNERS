@@ -1,3 +1,5 @@
+# Fallback/Default
+* @sigio
 # Specific events
 events/wiccon.yaml @elborro
 events/t-dose.yaml @xesxen
@@ -16,7 +18,5 @@ events/tilburg-opensource.yaml @stappersg
 events/oscal.yaml @kominoshja
 events/ubuntu.yaml @ubuntu-demon
 events/cfgmgmtcamp.yaml @toshywoshy
-
-# Fallback/Default
-* @sigio
+# Codeowners always just @sigio
 .github/CODEOWNERS @sigio
