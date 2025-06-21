@@ -1,3 +1,4 @@
+---
 
 - Name: CfgMgmtCamp 2025
   Location: Gent, BE
@@ -12,3 +13,5 @@
   EndDate: 2024-02-07
   Comment: DevOpsConf
   URL: https://cfgmgmtcamp.eu/
+
+...

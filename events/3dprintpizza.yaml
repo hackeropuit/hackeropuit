@@ -1,3 +1,5 @@
+---
+
 - Name: '3D Print & Pizza'
   Location: Pixelbar
   StartDate: 2025-01-08
@@ -71,3 +73,4 @@
   Comment: Dinner and learn
   URL: https://bitlair.nl/Events/2025-12-04_Print_%26_Pizza
 
+...

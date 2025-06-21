@@ -1,3 +1,4 @@
+---
 
 - Name: HackerHotel 2025
   Location: Garderen, NL
@@ -12,3 +13,5 @@
   EndDate: 2024-02-11
   Comment: HackerConf
   URL: https://www.hackerhotel.nl
+
+...

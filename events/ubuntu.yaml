@@ -1,6 +1,10 @@
+---
+
 - Name: Ubuntu Summit 2024
   Location: Den Haag, NL
   StartDate: 2024-10-25
   EndDate: 2024-10-27
   Comment: Ubuntu community event
   URL: https://events.canonical.com/event/51/
+
+...

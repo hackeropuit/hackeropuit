@@ -1,3 +1,4 @@
+---
 
 - Name: "FOSDEM 2025"
   Location: Brussels, BE
@@ -12,3 +13,5 @@
   EndDate: 2024-02-04
   Comment: OpenSourceConf
   URL: https://www.fosdem.org/
+
+...

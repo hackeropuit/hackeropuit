@@ -1,3 +1,4 @@
+---
 
 - Name: eth0:2025 Autumn
   Location: Someren, NL
@@ -12,3 +13,5 @@
   EndDate: 2022-10-30
   Comment: HackerCamp
   URL: https://wiki.eth0.nl/index.php/Eth0:2022_Autumn
+
+...

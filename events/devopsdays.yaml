@@ -1,3 +1,5 @@
+---
+
 - Name: DevOpsDays Geneva
   Location: Geneva, SX
   StartDate: 2023-04-24
@@ -77,3 +79,4 @@
   Comment: DevOpsConf
   URL: https://devopsdays.org/events/2026-zurich
 
+...
