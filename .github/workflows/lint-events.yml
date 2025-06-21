@@ -28,5 +28,5 @@ jobs:
 
       - name: Run YAML validation
         run: |
-          python .github/scripts/validate_events.py
+          python .github/scripts/validate-events.py
 
