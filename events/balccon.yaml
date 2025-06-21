@@ -1,10 +1,10 @@
 ---
 
-- Name: 'BalcCon 2023'
-  Location: 'Novi-Sad, RS'
+- Name: BalcCon 2023
+  Location: Novi-Sad, RS
   StartDate: 2023-09-08
   EndDate: 2023-09-10
   Comment: HackerConf
-  URL: 'https://2k23.balccon.org/'
+  URL: https://2k23.balccon.org/
 
 ...

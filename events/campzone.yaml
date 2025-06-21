@@ -1,11 +1,11 @@
 ---
 
-- Name: 'CampZone Winter 2022'
-  Location: 'Ommel'
+- Name: CampZone Winter 2022
+  Location: Ommel
   StartDate: 2022-11-18
   EndDate: 2022-11-21
   Comment: Gaming
-  URL: 'https://campzonewinter.nl/'
+  URL: https://campzonewinter.nl/
 #- Name: 'CampZone 2023'
 #  Location: 'Zoetermeer, NL'
 #  StartDate: 2023-07-28
