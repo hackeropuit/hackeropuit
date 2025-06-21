@@ -32,9 +32,12 @@ for event in all_events:
 
 okevents.sort(key=eventdate)
 
-# Write JSON output
+json_output = {
+    "last_updated": datetime.utcnow().isoformat() + "Z",
+    "events": okevents
+}
 with open("events.json", "w", encoding="utf-8") as output:
-    json.dump(okevents, output, indent=4, default=str, ensure_ascii=False, encoding="utf-8")
+    json.dump(json_output, output, indent=4, default=str, ensure_ascii=False, encoding="utf-8")
 
 # Generate iCalendar
 cal = Calendar()

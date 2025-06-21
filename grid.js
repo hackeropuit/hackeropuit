@@ -19,8 +19,15 @@ var jsondata = getJSON('events.json');
 var columns = ["Name", "Location", "StartDate", "EndDate", "Comment", "URL"]
 
 // (B) PARSE JSON INTO OBJECT
-var parsed = JSON.parse(jsondata);
+var data = JSON.parse(jsondata);
+var parsed = data.events;
 console.table(parsed);
+
+// Display the last updated timestamp
+var updatedElem = document.getElementById("lastUpdated");
+if (updatedElem && data.last_updated) {
+  updatedElem.innerText = "Laatst bijgewerkt: " + data.last_updated;
+}
 
 // (C) TABLE HEADER
 var theWrap = document.getElementById("tableWrap");

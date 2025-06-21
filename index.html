@@ -42,13 +42,40 @@
       background-position: bottom;
       background-size: cover;
     }
+    #infoBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1em;
+      flex-wrap: wrap;
+    }
+
+    #githubLink {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    #lastUpdated {
+      text-align: right;
+      color: #666;
+      font-size: 0.9em;
+      min-width: 150px;
+    }
   </style>
   <title>HackErOpUit</title>
 </head>
 <body>
   <div id="wrapper">
     <div id="header">HackErOpUit</div>
-    <p>Een evenement of uitje toevoegen ? Maak een pull-request via <A HREF="https://github.com/revspace/hackeropuit">github/revspace/hackeropuit</A></p>
+
+    <div id="infoBar">
+      <div id="githubLink">
+        Een evenement of uitje toevoegen? Maak een pull-request via
+        <a href="https://github.com/revspace/hackeropuit">github/revspace/hackeropuit</a>
+      </div>
+      <div id="lastUpdated"></div>
+    </div>
+
     <div id="tableWrap"></div>
   </div>
 </body>
