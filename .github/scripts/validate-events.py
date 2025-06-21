@@ -8,7 +8,7 @@ from ruamel.yaml import YAML
 yaml = YAML()
 yaml.preserve_quotes = True
 
-REQUIRED_FIELDS = ["Name", "StartDate", "EndDate", "URL"]
+REQUIRED_FIELDS = ["Name", "StartDate", "EndDate"]
 DATE_FMT = "%Y-%m-%d"
 
 errors = []
