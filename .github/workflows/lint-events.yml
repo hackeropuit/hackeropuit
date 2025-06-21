@@ -1,0 +1,32 @@
+name: Lint Event YAML Files
+
+on:
+  push:
+    paths:
+      - 'events/**/*.yaml'
+  pull_request:
+    paths:
+      - 'events/**/*.yaml'
+
+jobs:
+  lint:
+    name: Lint and Validate YAML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install ruamel.yaml
+
+      - name: Run YAML validation
+        run: |
+          python .github/scripts/validate_events.py
+
