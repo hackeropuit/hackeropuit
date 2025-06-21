@@ -1,16 +1,22 @@
 ---
 
 - Name: Hackerspaces Open dag 2023
-  Location: Various, NL
+  Location: Netherlands
   StartDate: 2023-03-25
   EndDate: 2023-03-25
   Comment: Open dag diverse NL hackerspaces
   URL: https://hackerspaces.nl/open-dag/
-- Name: Internationale open hackerspacedag
-  Location: Alle hackerspaces
+- Name: Hackerspaces Open Dag 2024
+  Location: Netherlands
+  StartDate: 2024-03-30
+  EndDate: 2024-03-30
+  Comment: Open day for (most) Dutch hackerspace
+  URL: https://hackerspaces.nl/open-dag/
+- Name: Hackerspaces Open Dag 2025
+  Location: Netherlands
   StartDate: 2025-03-29
   EndDate: 2025-03-29
-  Comment:
+  Comment: Open day for (most) Dutch hackerspace
   URL: https://hackerspaces.nl/
 
 ...
