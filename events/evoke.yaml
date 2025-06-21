@@ -2,9 +2,15 @@
 
 - Name: Evoke 2023
   Location: Cologne, DE
-  StartDate: 2022-07-28
-  EndDate: 2022-07-30
-  Comment: DemoScene
+  StartDate: 2023-07-28
+  EndDate: 2023-07-30
+  Comment: DemoParty
   URL: https://2023.evoke.eu
+- Name: Evoke 2025
+  Location: Cologne, DE
+  StartDate: 2025-08-15
+  EndDate: 2025-08-17
+  Comment: DemoParty
+  URL: https://2025.evoke.eu
 
 ...
