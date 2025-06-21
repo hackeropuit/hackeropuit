@@ -1,3 +1,5 @@
+---
+
 - Name: Inter-Hackerspace Bestuursoverleg
   Location: Bitlair
   StartDate: 1900-01-01
@@ -8,7 +10,7 @@
   Location: Bitlair
   StartDate: 2023-03-11
   EndDate: 2023-03-11
-  Comment: #party #bbq
+  Comment: Party
   URL: https://bitlair.nl/Events/2023-03-11_BBQ
 - Name: Weekend vd Wetenschap Amersfoort
   Location: Bitlair
@@ -17,3 +19,4 @@
   Comment: Opendag
   URL: https://bitlair.nl/Events/2025-10-05_Weekend_van_de_Wetenschap_-_Opendag_Bitlair_en_DJO
 
+...

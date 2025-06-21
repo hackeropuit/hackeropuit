@@ -1,6 +1,4 @@
-# Add your events to your own file, you can use multiple events in a single file
-# Just name it after your organization / group, then create a block per event
-# dates in YYYY-MM-DD, fields are case-sensitive
+---
 
 - Name: RustNL
   Location: Delft, NL
@@ -14,3 +12,5 @@
   EndDate: 2025-05-17
   Comment: Rust Conference
   URL: https://rustweek.org
+
+...

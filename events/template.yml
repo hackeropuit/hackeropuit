@@ -1,9 +1,12 @@
+---
+
 # Add your events to your own file, you can use multiple events in a single file
 # Just name it after your organization / group, then create a block per event
-# dates in YYYY-MM-DD, fields are case-sensitive
+# in chronologically ascending order, dates in YYYY-MM-DD, fields are case-
+# sensitive
 
 - Name: Demo Event 1
-  Location: Somewhere
+  Location: Amsterdam, NL
   StartDate: 1995-01-18
   EndDate: 1995-01-20
   Comment: Some Multi-Day Event
@@ -14,3 +17,5 @@
   EndDate: 1996-11-02
   Comment: Another Event
   URL:
+
+...

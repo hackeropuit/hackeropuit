@@ -1,16 +1,4 @@
-- Name: 37C3
-  Location: Hamburg, DE
-  StartDate: 2023-12-27
-  EndDate: 2023-12-30
-  Comment: HackerConf
-  URL: https://events.ccc.de/tag/37c3/
-
-- Name: CCC Camp 2023
-  Location: Mildenberg, DE
-  StartDate: 2023-08-15
-  EndDate: 2023-08-19
-  Comment: HackerCamp
-  URL: https://events.ccc.de/camp/2023/wiki/Main_Page
+---
 
 - Name: Easterhegg 2023
   Location: Hamburg, DE
@@ -18,17 +6,29 @@
   EndDate: 2023-04-10
   Comment: HackerConf
   URL: https://eh20.easterhegg.eu/
-
 - Name: Graz Linuxtage 2023
   Location: Graz, DE
   StartDate: 2023-04-14
   EndDate: 2023-04-15
   Comment: OpenSourceConf
   URL: http://linuxtage.at/
-
 - Name: GPN 2023
   Location: Karlsruhe, DE
   StartDate: 2023-06-08
   EndDate: 2023-06-11
   Comment: HackerConf
   URL: https://gulas.ch/
+- Name: CCC Camp 2023
+  Location: Mildenberg, DE
+  StartDate: 2023-08-15
+  EndDate: 2023-08-19
+  Comment: HackerCamp
+  URL: https://events.ccc.de/camp/2023/wiki/Main_Page
+- Name: 37C3
+  Location: Hamburg, DE
+  StartDate: 2023-12-27
+  EndDate: 2023-12-30
+  Comment: HackerConf
+  URL: https://events.ccc.de/tag/37c3/
+
+...
