@@ -6,17 +6,17 @@
   EndDate: 2022-07-26
   Comment: HackerCamp
   URL: https://mch2022.org
-- Name: WHY2025
-  Location: Geestmerambacht, NL
-  StartDate: 2025-08-08
-  EndDate: 2025-08-12
-  Comment: HackerCamp
-  URL: https://why2025.org
 - Name: WHY2025 Fallmeet
   Location: Eindhoven, NL
   StartDate: 2024-09-07
   EndDate: 2024-09-07
   Comment: HackerCamp orgameet
   URL: https://why2025.org/Orgameet_Fallfest_2024
+- Name: WHY2025
+  Location: Geestmerambacht, NL
+  StartDate: 2025-08-08
+  EndDate: 2025-08-12
+  Comment: HackerCamp
+  URL: https://why2025.org
 
 ...
