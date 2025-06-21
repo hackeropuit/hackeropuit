@@ -10,6 +10,8 @@ https://github.com/revspace/hackeropuit/
 
 If requested, I can hand out write permissions (with codeowners) on specific event-files, so events can update these themselves.
 
+Initial versions of the code to parse events and create the website were written by hand, but most changes to code since Jun 2025 have been done by AI coding bots. This includes the linter/workflows.
+
 ## Example event data:
 
 ```yaml
