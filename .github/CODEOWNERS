@@ -1,7 +1,7 @@
 # Fallback/Default
 * @sigio
 # Specific events
-events/wiccon.yaml @elborro
+events/wicca.yaml @elborro
 events/t-dose.yaml @xesxen
 events/bornhack.yaml @xesxen
 events/hackfest.yaml @zeno4ever
