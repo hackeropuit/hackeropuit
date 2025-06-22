@@ -1,16 +1,16 @@
 ---
 
 - Name: Openingsfeest Space 3
-  Location: Hackalot
+  Location: Hackalot, Eindhoven, NL
   StartDate: 2023-07-08
   EndDate: 2023-07-08
   Comment: Waar is dat Feestje?
   URL: https://hackalot.nl/Openingsfeest_3
 - Name: Weekend vd Wetenschap Eindhoven
-  Location: Hackalot
+  Location: Hackalot, Eindhoven, NL
   StartDate: 2025-10-04
   EndDate: 2025-10-04
-  Comment: Opendag
+  Comment: OpenDag
   URL: https://hackalot.nl/Weekend_van_de_wetenschap_2025
 
 ...
