@@ -1,6 +1,6 @@
 # Fallback/Default
 * @sigio
-# Specific events
+# Specific event files for specific people
 events/wicca.yaml @elborro
 events/t-dose.yaml @xesxen
 events/bornhack.yaml @xesxen
@@ -13,10 +13,7 @@ events/eurobsdcon.yaml @mischapeters
 events/bsdnl.yaml @mischapeters
 events/revspace.yaml @juerd
 events/nluug.yaml @sigio
-events/pvib.yaml @PvIB
 events/tilburg-opensource.yaml @stappersg
-events/oscal.yaml @kominoshja
-events/ubuntu.yaml @ubuntu-demon
 events/cfgmgmtcamp.yaml @toshywoshy
 # Codeowners always just @sigio
 .github/CODEOWNERS @sigio
