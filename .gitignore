@@ -3,3 +3,6 @@ events.json
 events.json.old
 events.ics
 events.ics.old
+*.ical
+*.bck
+*.swp
