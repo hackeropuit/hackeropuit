@@ -16,7 +16,7 @@ function getJSON(url) {
 
 //var jsondata = getJSON('https://hackeropuit.nl/events.json');
 var jsondata = getJSON('events.json');
-var columns = ["Name", "Location", "StartDate", "EndDate", "Comment", "iCal", "URL"]
+var columns = ["Name", "Location", "StartDate", "EndDate", "Comment", "URL"]
 
 // (B) PARSE JSON INTO OBJECT
 var data = JSON.parse(jsondata);
@@ -52,13 +52,7 @@ for (let key in parsed) {
         theCell.innerHTML = "<A HREF='" + theEvent[i] + "'>" + theEvent[i] + "</A>";
       }
     } else {
-      if (i == "iCal") {
-        if (theEvent[i] != null) {
-          theCell.innerHTML = "<A HREF='" + theEvent[i] + "'>iCal</A>";
-	}
-      } else {
-        theCell.innerHTML = theEvent[i];
-      }
+      theCell.innerHTML = theEvent[i];
     }
     theCell.classList.add("cell");
     if (altRow) {
