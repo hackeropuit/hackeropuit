@@ -8,23 +8,8 @@ from datetime import datetime, date, timedelta, timezone
 from icalendar import Calendar, Event
 from pathlib import Path
 
-### REMOVE AFTER RUAMEL.YAML UPGRADE
-# temporary dirty patch until ruamel.yaml has been upgraded
-def yaml_load(stream):
-    loaded = []
-
-    try:
-        # new style
-        yaml = ruamel_yaml.YAML(typ='safe', pure=True)
-        loaded = yaml.load(stream)
-    except:
-        loaded = ruamel_yaml.safe_load(stream)
-
-    return loaded
-
-### UNCOMMENT AFTER RUAMEL.YAML UPGRADE
 # Instantiate YAML
-#yaml = ruamel_yaml.YAML(typ='safe', pure=True)
+yaml = ruamel_yaml.YAML(typ='safe', pure=True)
 
 def eventdate(elem):
     return elem['StartDate']
@@ -38,8 +23,7 @@ for filename in glob.glob("events/*.yaml"):
     try:
         with open(filename, "r", encoding="utf-8") as stream:
             events = []
-            #loaded = yaml.load(stream)
-            loaded = yaml_load(stream) #use temporary patch
+            loaded = yaml.load(stream)
             if isinstance(loaded, list):
                 events.extend(loaded)
             elif isinstance(loaded, dict):
@@ -53,10 +37,6 @@ for filename in glob.glob("events/*.yaml"):
     except yaml.YAMLError as exc:
         print(f"Error parsing {filename}: {exc}")
 
-# Filter and sort events
-#for event in all_events:
-#    if event['EndDate'] >= event['StartDate'] and today <= event['EndDate']:
-#        okevents.append(event)
 
 # Filter events
 okevents = [event for event in all_events if event['EndDate'] >= event['StartDate'] and today <= event['EndDate']]
@@ -66,19 +46,10 @@ okevents.sort(key=eventdate)
 
 
 # Export results to json
-json_output = {}
-try:
-    # New method after upgrading datetime
-    json_output = {
-        "last_updated": datetime.now(timezone.utc).isoformat() + "Z",
-        "events": okevents
-    }
-except:
-    # Depricated method. Delete after updating datetime-library
-    json_output = {
-        "last_updated": datetime.utcnow().isoformat() + "Z",
-        "events": okevents
-    }
+json_output = {
+    "last_updated": datetime.now(timezone.utc).isoformat() + "Z",
+    "events": okevents
+}
 
 with open("events.json", "w", encoding="utf-8") as output:
     json.dump(json_output, output, indent=4, default=str, ensure_ascii=False, encoding="utf-8")
