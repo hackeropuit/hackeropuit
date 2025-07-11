@@ -1,0 +1,100 @@
+@font-face {
+    font-family      : 'OCR A Std';
+    font-style       : normal;
+    font-weight      : normal;
+    src              : local('OCR A Std'), url('OCRAStd.woff') format('woff');
+}
+
+body {
+    background-color : black;
+    font-family      : 'Open Sans', Sans-Serif;
+    color            : white;
+    padding          : 0px 5px;
+}
+
+#page-header {
+    width               : 100%;
+    margin              : 0px;
+    min-width           : 1000px;
+    padding             : 25px 0px 20px 0px;
+    text-align          : center;
+    font                : 128px 'OCR A Std';
+    text-shadow         : 5px  5px 10px #000, -5px  5px 10px #000, 5px -5px 10px #000, -5px -5px 10px #000; 
+    background-image    : url('computer-2930704_1280_half.jpg');
+    background-position : bottom;
+    background-size     : cover;
+}
+
+a {
+    color            : #8CF;
+}
+
+a:visited {
+    color            : #8D5;
+}
+
+a:hover {
+    color            : #8D5;
+}
+
+#infobar {
+  margin : 10px 0px;
+  display : flex;
+  justify-content : space-between;
+}
+
+#info-left {
+  display : flex;
+  gap : 10px;
+}
+
+#info-mid {
+  display : flex;
+  gap : 10px;
+}
+
+#info-right {
+  display : flex;
+  gap : 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width : 100%;
+}
+
+thead {
+  background: #8CF;
+  color: #000;
+  font-weight: bold;
+}
+
+tr {
+}
+
+th {
+  cursor: pointer;
+  text-align : left;
+  padding    : 0.9em 0.3em;
+}
+
+tbody {
+}
+
+tr {
+}
+
+tr.odd {
+}
+
+tr.even {
+  background: #222;
+}
+
+td {
+  padding: 0.4em 0.3em;
+}
+
+.hidden-col {
+  display: none;
+}
