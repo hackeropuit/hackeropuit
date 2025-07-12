@@ -1,13 +1,15 @@
 @font-face {
-  font-family: 'OCR A Std';
+  font-family: "OCR A Std";
   font-style: normal;
   font-weight: normal;
-  src: local('OCR A Std'), url('OCRAStd.woff') format('woff');
+  src:
+    local("OCR A Std"),
+    url("OCRAStd.woff") format("woff");
 }
 
 body {
   background-color: black;
-  font-family: 'Open Sans', Sans-Serif;
+  font-family: "Open Sans", Sans-Serif;
   color: white;
   padding: 0px 5px;
 }
@@ -18,23 +20,27 @@ body {
   min-width: 1000px;
   padding: 25px 0px 20px 0px;
   text-align: center;
-  font: 128px 'OCR A Std';
-  text-shadow: 5px  5px 10px #000, -5px  5px 10px #000, 5px -5px 10px #000, -5px -5px 10px #000; 
-  background-image: url('computer-2930704_1280_half.jpg');
+  font: 128px "OCR A Std";
+  text-shadow:
+    5px 5px 10px #000,
+    -5px 5px 10px #000,
+    5px -5px 10px #000,
+    -5px -5px 10px #000;
+  background-image: url("computer-2930704_1280_half.jpg");
   background-position: bottom;
   background-size: cover;
 }
 
 a {
-  color: #8CF;
+  color: #8cf;
 }
 
 a:visited {
-  color: #8D5;
+  color: #8d5;
 }
 
 a:hover {
-  color: #8D5;
+  color: #8d5;
 }
 
 #infobar {
@@ -64,7 +70,7 @@ table {
 }
 
 thead {
-  background: #8CF;
+  background: #8cf;
   color: #000;
   font-weight: bold;
 }
