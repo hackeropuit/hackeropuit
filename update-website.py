@@ -12,10 +12,14 @@ import re
 
 # Configuration
 OUTPUTFILE = 'new_index.html'
-EVENTDIR   = 'events'
-ICALDIR    = 'ical'
-VERSION    = '1.0'
-AUTHORS    = 'sigio,ubuntu-demon,kominoshja,tjclement,dekkers,JolienF,dutchmartin,amarsman,brainsmoke,eloydegen,juerd,stappersg,xesxen,mischapeters,polyfloyd,zeno4ever,toshywoshy,boekenwuurm,dvanzuilekom,elborro'
+EVENTDIR = 'events'
+ICALDIR = 'ical'
+VERSION = '1.0'
+AUTHORS = ("sigio,ubuntu-demon,kominoshja,tjclement,dekkers,JolienF,"
+           "dutchmartin,amarsman,brainsmoke,eloydegen,juerd,stappersg,"
+           "xesxen,mischapeters,polyfloyd,zeno4ever,toshywoshy,boekenwuurm,"
+           "dvanzuilekom,elborro"
+           )
 
 # Store current time to use the same timestamp in all generated files
 now = datetime.now(timezone.utc)
@@ -29,7 +33,7 @@ for filename in glob.glob("events/*.yaml"):
         with open(filename, "r", encoding="utf-8") as eventfile:
             eventdata = yaml.load(eventfile)
 
-            events=[]
+            events = []
             if isinstance(eventdata, list):
                 events.extend(eventdata)
             elif isinstance(eventdata, dict):
@@ -53,7 +57,12 @@ all_events = sorted(all_events, key=itemgetter('StartDate'))
 
 # Filter already passed events
 today = date.today()
-upcoming_events = [event for event in all_events if event['StartDate'] <= event['EndDate'] and today <= event['EndDate']]
+upcoming_events = [
+                    event
+                    for event in all_events
+                    if event['StartDate'] <= event['EndDate']
+                    and today <= event['EndDate']
+                   ]
 
 
 # Clean up iCalender folder
@@ -69,17 +78,17 @@ cal = Calendar()
 cal.add('prodid', '-//Hack er op uit//hackeropuit.nl//')
 cal.add('version', '2.0')
 
-for source_event in all_events:
+for evt in all_events:
     event = Event()
     event.add('dtstamp', now)
-    event.add('uid', f"/{source_event['Name']}/{source_event['StartDate']}")
-    event.add('summary', source_event['Name'])
+    event.add('uid', f"/{evt['Name']}/{evt['StartDate']}")
+    event.add('summary', evt['Name'])
     event.add('transp', 'TRANSPARENT')
-    event.add('dtstart', source_event['StartDate'])
-    event.add('dtend', source_event['EndDate'] + timedelta(days=1))
-    event.add('location', source_event['Location'])
-    event.add('description', source_event['Comment'])
-    event.add('url', source_event['URL'])
+    event.add('dtstart', evt['StartDate'])
+    event.add('dtend', evt['EndDate'] + timedelta(days=1))
+    event.add('location', evt['Location'])
+    event.add('description', evt['Comment'])
+    event.add('url', evt['URL'])
     cal.add_component(event)
 
 with open('ical/all_events.ics', 'wb') as f:
@@ -95,17 +104,17 @@ for file in files:
     cal.add('prodid', '-//Hack er op uit//hackeropuit.nl//')
     cal.add('version', '2.0')
 
-    for source_event in source_events:
+    for evt in source_events:
         event = Event()
         event.add('dtstamp', now)
-        event.add('uid', f"/{source_event['Name']}/{source_event['StartDate']}")
-        event.add('summary', source_event['Name'])
+        event.add('uid', f"/{evt['Name']}/{evt['StartDate']}")
+        event.add('summary', evt['Name'])
         event.add('transp', 'TRANSPARENT')
-        event.add('dtstart', source_event['StartDate'])
-        event.add('dtend', source_event['EndDate'] + timedelta(days=1))
-        event.add('location', source_event['Location'])
-        event.add('description', source_event['Comment'])
-        event.add('url', source_event['URL'])
+        event.add('dtstart', evt['StartDate'])
+        event.add('dtend', evt['EndDate'] + timedelta(days=1))
+        event.add('location', evt['Location'])
+        event.add('description', evt['Comment'])
+        event.add('url', evt['URL'])
         cal.add_component(event)
 
     with open(f"ical/{file}.ics", 'wb') as f:
@@ -113,24 +122,24 @@ for file in files:
 
 
 # Generate iCalendar files per single upcoming event
-for source_event in upcoming_events:
+for evt in upcoming_events:
     cal = Calendar()
     cal.add('prodid', '-//Hack er op uit//hackeropuit.nl//')
     cal.add('version', '2.0')
 
     event = Event()
     event.add('dtstamp', now)
-    event.add('uid', f"/{source_event['Name']}/{source_event['StartDate']}")
-    event.add('summary', source_event['Name'])
+    event.add('uid', f"/{evt['Name']}/{evt['StartDate']}")
+    event.add('summary', evt['Name'])
     event.add('transp', 'TRANSPARENT')
-    event.add('dtstart', source_event['StartDate'])
-    event.add('dtend', source_event['EndDate'] + timedelta(days=1))
-    event.add('location', source_event['Location'])
-    event.add('description', source_event['Comment'])
-    event.add('url', source_event['URL'])
+    event.add('dtstart', evt['StartDate'])
+    event.add('dtend', evt['EndDate'] + timedelta(days=1))
+    event.add('location', evt['Location'])
+    event.add('description', evt['Comment'])
+    event.add('url', evt['URL'])
     cal.add_component(event)
 
-    with open(source_event['iCal'], 'wb') as f:
+    with open(evt['iCal'], 'wb') as f:
         f.write(cal.to_ical())
 
 
@@ -141,19 +150,21 @@ for source_event in upcoming_events:
 youngest_event_file = now
 
 try:
-  # Get all files (not directories) in the directory with full paths
-  directory = EVENTDIR
-  files = [os.path.join(directory, f) for f in os.listdir(directory) 
-    if os.path.isfile(os.path.join(directory, f))]
-    
-  if files:
-    # Find the file with the latest (youngest) modification time
-    youngest_file = max(files, key=os.path.getmtime)
-    timestamp = os.path.getmtime(youngest_file)
-    youngest_event_file = datetime.fromtimestamp(timestamp)
+    # Get all files (not directories) in the directory with full paths
+    directory = EVENTDIR
+    files = [os.path.join(directory, f)
+             for f in os.listdir(directory)
+             if os.path.isfile(os.path.join(directory, f))
+             ]
+
+    if files:
+        # Find the file with the latest (youngest) modification time
+        youngest_file = max(files, key=os.path.getmtime)
+        timestamp = os.path.getmtime(youngest_file)
+        youngest_event_file = datetime.fromtimestamp(timestamp)
 
 except Exception as ex:
-  print(f"Error retrieving youngest timestamp : {ex}")
+    print(f"Error retrieving youngest timestamp : {ex}")
 
 
 # Determine authors
@@ -161,53 +172,81 @@ except Exception as ex:
 # 2. update with whomever is mentioned in codeowners file
 authors = ""
 try:
-  # Read the file
-  codeowners_list = []
-  with open('.github/CODEOWNERS', 'r', encoding='utf-8') as file:
-    codeowners_file = file.read()
-    codeowners_list = re.findall(r'@(\w+)', codeowners_file)
+    # Read the file
+    codeowners_list = []
+    with open('.github/CODEOWNERS', 'r', encoding='utf-8') as file:
+        codeowners_file = file.read()
+        codeowners_list = re.findall(r'@(\w+)', codeowners_file)
 
-  author_list = AUTHORS.split(',')
-  author_list.extend(codeowners_list)
+    author_list = AUTHORS.split(',')
+    author_list.extend(codeowners_list)
 
-  author_list = [author.strip().lower() for author in author_list]
+    author_list = [author.strip().lower() for author in author_list]
 
-  authors = ','.join(sorted(set(author_list)))
+    authors = ','.join(sorted(set(author_list)))
 
 except Exception as ex:
-  print(f"Error retrieving authors : {ex}")
-
+    print(f"Error retrieving authors : {ex}")
 
 
 # Store results in info dictionary
 keys = {
-    "{{NOW}}"                : now.isoformat(),
-    "{{GENERATOR_VERSION}}"  : VERSION,
-    "{{GENERATOR_REVISION}}" : datetime.fromtimestamp(os.path.getmtime(__file__)).isoformat(),
-    "{{LASTREFRESH}}"        : now.strftime("%Y-%m-%d %H:%M"),
-    "{{LASTEDIT}}"           : youngest_event_file.strftime("%Y-%m-%d %H:%M"),
-    "{{AUTHORS}}"            : authors
+    "{{NOW}}": now.isoformat(),
+    "{{GENERATOR_VERSION}}": VERSION,
+    "{{GENERATOR_REVISION}}": datetime.fromtimestamp(
+                                                    os.path.getmtime(__file__)
+                                                    )
+                                      .isoformat(),
+    "{{LASTREFRESH}}": now.strftime("%Y-%m-%d %H:%M"),
+    "{{LASTEDIT}}": youngest_event_file.strftime("%Y-%m-%d %H:%M"),
+    "{{AUTHORS}}": authors
 }
 
 
 # Define table structure
 tablefmt = {
-    "📅"        : {"hidden":"n", "export":"n", "type":"url", "field":"iCal"},
-    "Name"      : {"hidden":"n", "export":"y", "type":"txt", "field":"Name"},
-    "Location"  : {"hidden":"n", "export":"y", "type":"txt", "field":"Location"},
-    "Date"      : {"hidden":"n", "export":"n", "type":"txt", "field":"StartDate - EndDate"},
-    "StartDate" : {"hidden":"y", "export":"y", "type":"txt", "field":"StartDate"},
-    "EndDate"   : {"hidden":"y", "export":"y", "type":"txt", "field":"EndDate"},
-    "Comment"   : {"hidden":"n", "export":"y", "type":"txt", "field":"Comment"},
-    "Website"   : {"hidden":"n", "export":"y", "type":"url", "field":"URL"}
+    "📅": {"hidden": "n",
+          "export": "n",
+          "type": "url",
+          "field": "iCal"},
+    "Name": {"hidden": "n",
+             "export": "y",
+             "type": "txt",
+             "field": "Name"},
+    "Location": {"hidden": "n",
+                 "export": "y",
+                 "type": "txt",
+                 "field": "Location"},
+    "Date": {"hidden": "n",
+             "export": "n",
+             "type": "txt",
+             "field": "StartDate - EndDate"},
+    "StartDate": {"hidden": "y",
+                  "export": "y",
+                  "type": "txt",
+                  "field": "StartDate"},
+    "EndDate": {"hidden": "y",
+                "export": "y",
+                "type": "txt",
+                "field": "EndDate"},
+    "Comment": {"hidden": "n",
+                "export": "y",
+                "type": "txt",
+                "field": "Comment"},
+    "Website": {"hidden": "n",
+                "export": "y",
+                "type": "url",
+                "field": "URL"}
 }
 
-field_separators = [' ','-']
+field_separators = [' ', '-']
+
 
 def split_by_separators(text, separators):
     escaped = [re.escape(sep) for sep in separators]
     pattern = f"({'|'.join(escaped)})"
     return [part for part in re.split(pattern, text) if part != '']
+
 
 def get_field_value(event, column_name):
     formatted_value = ""
@@ -224,7 +263,7 @@ def get_field_value(event, column_name):
                 value = str(event[field])
                 retrieved.append(value)
 
-            except:
+            except Exception:
                 value = str(field)
 
             values.append(value)
@@ -258,8 +297,7 @@ def get_column_class(column_name):
     return class_txt
 
 
-
-#try:
+# try:
 with open("index.tpl", "r", encoding="utf-8") as htmlfile:
     content = htmlfile.read()
 
@@ -289,8 +327,6 @@ with open("index.tpl", "r", encoding="utf-8") as htmlfile:
             thead.append(tr)
 
             for idx, column_name in enumerate(tablefmt):
-                #fmt = tablefmt[key]
-
                 th = soup.new_tag("th")
                 th['onclick'] = f'sortTable({idx})'
 
@@ -317,27 +353,21 @@ with open("index.tpl", "r", encoding="utf-8") as htmlfile:
                 tbody.append(tr)
 
                 for column_name in tablefmt:
-                    #fmt = tablefmt[column_name]
-
                     td = soup.new_tag("td")
 
                     class_text = get_column_class(column_name)
                     if class_text != "":
-                       td['class'] = class_text
-
-                    #td.string = get_field_value(event, column_name)
-                    #tr.append(td)
+                        td['class'] = class_text
 
                     formatted_value = get_field_value(event, column_name)
-                    fragment_soup = BeautifulSoup(formatted_value, "html.parser")
+                    fragment_soup = BeautifulSoup(formatted_value,
+                                                  "html.parser")
                     td.append(fragment_soup)
                     tr.append(td)
-
-
 
     pretty_safe_html = soup.prettify(formatter="html")
     with open(OUTPUTFILE, "w", encoding="utf-8") as htmlfile:
         htmlfile.write(str(pretty_safe_html))
 
-#except Exception as ex:
+# except Exception as ex:
 #    print(f'Error creating index.html: {ex}')

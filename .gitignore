@@ -5,3 +5,4 @@ events.ics
 events.ics.old
 *.ics
 *.bck
+.pre-commit-config.yaml
