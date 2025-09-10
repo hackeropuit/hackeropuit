@@ -30,11 +30,23 @@
   EndDate: 2023-12-30
   Comment: HackerConf
   URL: https://events.ccc.de/tag/37c3/
+- Name: 38C3
+  Location: Hamburg, DE
+  StartDate: 2024-12-27
+  EndDate: 2024-12-30
+  Comment: HackerConf
+  URL: https://events.ccc.de/category/38c3/
 - Name: Easterhegg 2026
   Location: Koblenz, DE
   StartDate: 2026-04-03
   EndDate: 2026-04-07
   Comment: HackerConf
   URL: https://eh23.easterhegg.eu/
+- Name: 39C3
+  Location: Hamburg, DE
+  StartDate: 2025-12-27
+  EndDate: 2025-12-30
+  Comment: HackerConf
+  URL: https://events.ccc.de/category/39c3/
 
 ...
