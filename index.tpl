@@ -50,7 +50,7 @@
       <div id="info-mid">
         <span>
           Evenement of uitje toevoegen?
-          <a href="https://github.com/revspace/hackeropuit">Pull request!</a>
+          <a href="https://github.com/hackeropuit/hackeropuit">Pull request!</a>
         </span>
       </div>
       <div id="info-right">
