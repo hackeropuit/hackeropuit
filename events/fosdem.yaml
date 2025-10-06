@@ -12,5 +12,11 @@
   EndDate: 2025-02-02
   Comment: OpenSourceConf
   URL: https://www.fosdem.org/
+- Name: FOSDEM 2026
+  Location: Brussel, BE
+  StartDate: 2025-01-31
+  EndDate: 2025-02-01
+  Comment: OpenSourceConf
+  URL: https://www.fosdem.org/
 
 ...
