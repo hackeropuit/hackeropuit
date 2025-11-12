@@ -12,5 +12,16 @@
   EndDate: 2025-10-05
   Comment: OpenDag
   URL: https://www.revspace.nl/Weekend_van_de_Wetenschap_(2025)
-  
+- Name: Workshop My first kernel driver
+  Location: Revspace, Leidschendam, NL
+  StartDate: 2025-11-13
+  EndDate: 2025-11-13
+  Comment: Read the instructions on the site
+  URL: https://revspace.nl/Workshop_My_first_kernel_driver
+- Name: Workshop Meshcore
+  Location: Revspace, Leidschendam, NL
+  StartDate: 2025-11-29
+  EndDate: 2025-11-29
+  Comment: Lekkâh Meshcore Hakkûh
+  URL: https://revspace.nl/Meshcore
 ...
