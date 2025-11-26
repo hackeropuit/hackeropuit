@@ -12,5 +12,11 @@
   EndDate: 2025-09-05
   Comment: CybersecConf
   URL: https://orangecon.nl/
+- Name: OrangeCon 2026
+  Location: Amsterdam, NL
+  StartDate: 2026-06-04
+  EndDate: 2026-06-04
+  Comment: CybersecConf
+  URL: https://orangecon.nl/
 
 ...

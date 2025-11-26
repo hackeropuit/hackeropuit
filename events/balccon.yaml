@@ -1,10 +1,16 @@
 ---
 
-- Name: BalcCon 2023
+- Name: BalcCon 2025
   Location: Novi-Sad, RS
-  StartDate: 2023-09-08
-  EndDate: 2023-09-10
+  StartDate: 2025-09-19
+  EndDate: 2025-09-21
   Comment: HackerConf
-  URL: https://2k23.balccon.org/
+  URL: https://2k25.balccon.org/
+#- Name: BalcCon 2026
+#  Location: Novi-Sad, RS
+#  StartDate: 2026-09-??
+#  EndDate: 2026-09-??
+#  Comment: HackerConf
+#  URL: https://2k26.balccon.org/
 
 ...
