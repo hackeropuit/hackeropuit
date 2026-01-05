@@ -30,5 +30,20 @@
   EndDate: 2025-10-04
   Comment: OpenDag
   URL: https://hack42.nl/wiki/WvdW2025
+- Name: Hack42 Nieuwjaarsborrel
+  Location: Hack42, Arnhem, NL
+  StartDate: 2026-01-09
+  EndDate: 2026-01-09
+  Comment: Nieuwjaarsborrel
+- Name: Workshop FreeCAD Modelleren Samen Leren
+  Location: Hack42, Arnhem, NL
+  StartDate: 2026-01-16
+  EndDate: 2026-01-16
+  Comment: In groepsverband tutorials volgen en samen FreeCAD leren
+- Name: Hack42 Theeproeverij
+  Location: Hack42, Arnhem, NL
+  StartDate: 2026-02-21
+  EndDate: 2026-02-21
+  Comment: Thee drink sessie
 
 ...
