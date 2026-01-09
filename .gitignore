@@ -5,4 +5,5 @@ events.ics
 events.ics.old
 *.ics
 *.bck
+ical/*.ics
 .pre-commit-config.yaml
