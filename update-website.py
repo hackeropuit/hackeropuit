@@ -161,7 +161,7 @@ try:
         # Find the file with the latest (youngest) modification time
         youngest_file = max(files, key=os.path.getmtime)
         timestamp = os.path.getmtime(youngest_file)
-        youngest_event_file = datetime.fromtimestamp(timestamp)
+        youngest_event_file = datetime.fromtimestamp(timestamp, tz=timezone.utc)
 
 except Exception as ex:
     print(f"Error retrieving youngest timestamp : {ex}")
