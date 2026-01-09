@@ -134,9 +134,9 @@ for evt in upcoming_events:
     event.add('transp', 'TRANSPARENT')
     event.add('dtstart', evt['StartDate'])
     event.add('dtend', evt['EndDate'] + timedelta(days=1))
-    event.add('location', evt['Location'])
-    event.add('description', evt['Comment'])
-    event.add('url', evt['URL'])
+    event.add('location', evt.get('Location'))
+    event.add('description', evt.get('Comment'))
+    event.add('url', evt.get('URL'))
     cal.add_component(event)
 
     with open(evt['iCal'], 'wb') as f:
