@@ -34,7 +34,7 @@ for event in all_events:
 okevents.sort(key=eventdate)
 
 json_output = {
-    "last_updated": datetime.utcnow().isoformat() + "Z",
+    "last_updated": datetime.now(timezone.utc).isoformat() + "Z",
     "events": okevents
 }
 with open("events.json", "w", encoding="utf-8") as output:
@@ -55,7 +55,7 @@ for source_event in all_events:
     event.add('dtend', source_event['EndDate'] + timedelta(days=1))
     event.add('location', source_event.get('Location'))
     event.add('description', source_event.get('Comment'))
-    event.add('url', source_event.get('URL'))
+    event.add('url', source_event.get('URL', ''))
     cal.add_component(event)
 
 with open('events.ics', 'wb') as f:
