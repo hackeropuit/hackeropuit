@@ -1,8 +1,10 @@
 ---
 
 - Name: Gulaschprogrammiernacht 24 (GPN24)
-  Location: Karlsruhe, DE 
+  Location: Karlsruhe, DE
   StartDate: 2026-06-04
   EndDate: 2026-06-07
-  Comment: HackerConf 
-  URL: https://entropia.de/GPN24 
+  Comment: HackerConf
+  URL: https://entropia.de/GPN24
+
+...
