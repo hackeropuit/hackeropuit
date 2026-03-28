@@ -1,0 +1,37 @@
+name: Update Bitlair events from the website
+
+on:
+  schedule:
+    - cron: "42 1 * * *"
+      timezone: "Europe/Amsterdam"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Fetch events
+        run: |
+          python ./.github/scripts/update-bitlair.py > events/bitlair.yaml
+
+      - name: Configure git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push
+        run: |
+          git add events/bitlair.yaml
+          git commit -m "Update Bitlair" || true
+          git push
