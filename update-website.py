@@ -28,8 +28,9 @@ now = datetime.now(timezone.utc)
 # Read yaml event files
 all_events = []
 yaml = ruamel_yaml.YAML(typ='safe', pure=True)
-for filename in glob.glob("events/*.yaml"):
+for filename in sorted(glob.glob("events/*.yaml")):
     try:
+        print("Reading file:", filename)
         with open(filename, "r", encoding="utf-8") as eventfile:
             eventdata = yaml.load(eventfile)
 
@@ -66,7 +67,7 @@ upcoming_events = [
 
 
 # Clean up iCalender folder
-for filename in glob.glob("ical/*.ics"):
+for filename in sorted(glob.glob("ical/*.ics")):
     try:
         os.remove(filename)
     except Exception as ex:
@@ -360,9 +361,9 @@ with open("index.tpl", "r", encoding="utf-8") as htmlfile:
                         td['class'] = class_text
 
                     formatted_value = get_field_value(event, column_name)
-                    fragment_soup = BeautifulSoup(formatted_value,
-                                                  "html.parser")
-                    td.append(fragment_soup)
+                    fragment_soup = BeautifulSoup(formatted_value, "html.parser")
+                    for child in fragment_soup.contents:
+                        td.append(child)
                     tr.append(td)
 
     pretty_safe_html = soup.prettify(formatter="html")
