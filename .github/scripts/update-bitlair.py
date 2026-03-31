@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# This is run from a daily cronjob on the hackeropuit host
+
 from datetime import datetime, timedelta
 import pytz
 import re
