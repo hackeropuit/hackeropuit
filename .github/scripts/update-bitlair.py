@@ -66,8 +66,8 @@ for page_path, value in smw_events.items():
             "Location": "Bitlair, Amersfoort, NL",
             "StartDate": start_time.date(),
             "EndDate": end_time.date(),
-            "URL": value["fullurl"],
             "Comment": "",
+            "URL": value["fullurl"],
         }
     )
 
