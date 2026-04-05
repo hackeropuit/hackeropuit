@@ -14,7 +14,7 @@ resp.raise_for_status()
 cal = icalendar.Calendar.from_ical(resp.text)
 
 events = []
-for cal_event in cal.events:
+for cal_event in cal.subcomponents:
     events.append(
         {
             "Name": str(cal_event["summary"]),
