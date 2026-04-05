@@ -1,5 +1,4 @@
 icalendar
-pytz
 requests
 ruamel.yaml
 simplejson
