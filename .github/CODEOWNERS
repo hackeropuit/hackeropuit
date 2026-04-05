@@ -1,5 +1,6 @@
 # Fallback/Default
 * @sigio
+.github/** @sigio
 # Specific event files for specific people
 events/bitlair.yaml @polyfloyd
 events/bornhack.yaml @xesxen
