@@ -36,7 +36,7 @@ for event in all_events:
         okevent = {};
         okevent['Name'] = event['Name'];
         okevent['Location'] = event['Location'];
-        okevent['StartDate'] = event['EndDate'];
+        okevent['StartDate'] = event['StartDate'];
         okevent['EndDate'] = event['EndDate'];
         okevent['Comment'] = event['Comment'];
         okevent['URL'] = event['URL'];
