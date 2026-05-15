@@ -100,7 +100,7 @@ function exportTableToCSV() {
   );
   csv.push(headers.join(","));
 
-  // Process each row
+  // Add all rows in the current (filtered) selection
   for (let row of rows) {
     const cells = Array.from(row.cells);
     const filteredCells = includedIndexes.map((index) => {
