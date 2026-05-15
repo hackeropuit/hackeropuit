@@ -22,11 +22,15 @@ function sortTable(colIndex) {
         : bText.localeCompare(aText);
   });
 
-  rows.forEach((row, index) => {
+  let visibleRowIndex = 0;
+  for (let row of rows) {
     row.classList.remove("odd", "even");
-    row.classList.add(index % 2 === 0 ? "even" : "odd");
+    if (row.style.display != "none") {
+      row.classList.add(visibleRowIndex % 2 === 0 ? "even" : "odd");
+      visibleRowIndex++;
+    }
     tbody.appendChild(row);
-  });
+  }
 
   ths[colIndex].classList.add(
     sortDirection[colIndex] ? "sorted-asc" : "sorted-desc",
@@ -36,6 +40,8 @@ function sortTable(colIndex) {
 function filterTable() {
   const input = document.getElementById("searchInput");
   const filter = input.value.toLowerCase();
+  const regex = new RegExp(`(${filter})`, "gi");
+
   const table = document.getElementById("eventtable");
   const rows = table.tBodies[0].rows;
 
@@ -44,16 +50,22 @@ function filterTable() {
   for (let row of rows) {
     let match = false;
 
-    for (let cell of row.cells) {
-      const plainText = cell.textContent;
-      const lowerText = plainText.toLowerCase();
+    if (row.style.display != "none") {
+      for (let cell of row.cells) {
+	// Ignore cells with links
+	if (cell.querySelector("a")) {
+	  continue;
+	}
+	
+        const plainText = cell.textContent;
+        const lowerText = plainText.toLowerCase();
 
-      if (filter && lowerText.includes(filter)) {
-        match = true;
-        const regex = new RegExp(`(${filter})`, "gi");
-        cell.innerHTML = plainText.replace(regex, "<mark>$1</mark>");
-      } else {
-        cell.innerHTML = plainText;
+        if (filter && lowerText.includes(filter)) {
+          match = true;
+          cell.innerHTML = plainText.replace(regex, "<mark>$1</mark>");
+        } else {
+          cell.innerHTML = plainText;
+        }
       }
     }
 
@@ -84,7 +96,7 @@ function exportTableToCSV() {
 
   // Build the header row, excluding 'exclude' columns
   const headers = includedIndexes.map((index) =>
-    thElements[index].textContent.trim(),
+    '"' + thElements[index].textContent.trim() + '"',
   );
   csv.push(headers.join(","));
 
@@ -99,7 +111,7 @@ function exportTableToCSV() {
         .replace(/[\r\n]+/g, " ")
         .trim()
         .replace(/"/g, '""');
-      return cleaned;
+      return `"${cleaned}"`;
     });
     csv.push(filteredCells.join(","));
   }
@@ -204,3 +216,4 @@ function escapeICalText(text) {
     .replace(/;/g, "\\;")
     .replace(/\r?\n/g, "\\n");
 }
+
