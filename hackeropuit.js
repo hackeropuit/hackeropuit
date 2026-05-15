@@ -52,7 +52,7 @@ function filterTable() {
 
     if (row.style.display != "none") {
       for (let cell of row.cells) {
-	// Ignore cells with links
+        // Ignore cells with links
         if (cell.querySelector("a")) {
           continue;
         }
