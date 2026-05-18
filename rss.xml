@@ -1,0 +1,1301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:custom="https://hackeropuit.nl">
+ <channel>
+  <title>
+   Hackeropuit
+  </title>
+  <link>
+   https://hackeropuit.nl
+  </link>
+  <description>
+   Hacky events
+  </description>
+  <language>
+   en-us
+  </language>
+  <lastBuildDate>
+   Mon, 18 May 2026 19:08:43 +0000
+  </lastBuildDate>
+  <atom:link href="https://hackeropuit.nl/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+   <title>
+    Towel Day 2026
+   </title>
+   <link>
+    https://towelday.org
+   </link>
+   <guid isPermaLink="true">
+    /Towel Day 2026/2026-05-25
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Newline
+   </title>
+   <link>
+    https://newline.gent
+   </link>
+   <guid isPermaLink="true">
+    /Newline/2026-05-29
+   </guid>
+   <description>
+    <![CDATA[DemoParty]]>
+   </description>
+   <comments>
+    <![CDATA[DemoParty]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    OrangeCon 2026
+   </title>
+   <link>
+    https://orangecon.nl/
+   </link>
+   <guid isPermaLink="true">
+    /OrangeCon 2026/2026-06-04
+   </guid>
+   <description>
+    <![CDATA[CybersecConf]]>
+   </description>
+   <comments>
+    <![CDATA[CybersecConf]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    T-Dose 2026
+   </title>
+   <link>
+    https://t-dose.org/
+   </link>
+   <guid isPermaLink="true">
+    /T-Dose 2026/2026-06-06
+   </guid>
+   <description>
+    <![CDATA[Open-Source event]]>
+   </description>
+   <comments>
+    <![CDATA[Open-Source event]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Dutch Comic Con
+   </title>
+   <link>
+    https://dutchcomiccon.com
+   </link>
+   <guid isPermaLink="true">
+    /Dutch Comic Con/2026-06-20
+   </guid>
+   <description>
+    <![CDATA[ComicCon]]>
+   </description>
+   <comments>
+    <![CDATA[ComicCon]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Black Valley 2026
+   </title>
+   <link>
+    https://2026.blackvalley.party
+   </link>
+   <guid isPermaLink="true">
+    /Black Valley 2026/2026-07-10
+   </guid>
+   <description>
+    <![CDATA[DemoParty]]>
+   </description>
+   <comments>
+    <![CDATA[DemoParty]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    BornHack 2026
+   </title>
+   <link>
+    https://bornhack.dk/bornhack-2026/
+   </link>
+   <guid isPermaLink="true">
+    /BornHack 2026/2026-07-15
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    EMFCamp 2026
+   </title>
+   <link>
+    https://www.emfcamp.org/
+   </link>
+   <guid isPermaLink="true">
+    /EMFCamp 2026/2026-07-16
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    System Administrator Appreciation Day
+   </title>
+   <link>
+    https://sysadminday.com
+   </link>
+   <guid isPermaLink="true">
+    /System Administrator Appreciation Day/2026-07-31
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Fri3dCamp 2026
+   </title>
+   <link>
+    https://fri3d.be/
+   </link>
+   <guid isPermaLink="true">
+    /Fri3dCamp 2026/2026-08-14
+   </guid>
+   <description>
+    <![CDATA[MakerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[MakerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    FrosCon 2026
+   </title>
+   <link>
+    https://www.froscon.de/en/
+   </link>
+   <guid isPermaLink="true">
+    /FrosCon 2026/2026-08-15
+   </guid>
+   <description>
+    <![CDATA[OpenSourceConf]]>
+   </description>
+   <comments>
+    <![CDATA[OpenSourceConf]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Maker Faire Hannover
+   </title>
+   <link>
+    https://maker-faire.de/hannover
+   </link>
+   <guid isPermaLink="true">
+    /Maker Faire Hannover/2026-08-15
+   </guid>
+   <description>
+    <![CDATA[Maker Market]]>
+   </description>
+   <comments>
+    <![CDATA[Maker Market]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Evoke 2026
+   </title>
+   <link>
+    https://2026.evoke.eu
+   </link>
+   <guid isPermaLink="true">
+    /Evoke 2026/2026-08-21
+   </guid>
+   <description>
+    <![CDATA[DemoParty]]>
+   </description>
+   <comments>
+    <![CDATA[DemoParty]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    EuroBSDCon 2026
+   </title>
+   <link>
+    https://2026.eurobsdcon.org/
+   </link>
+   <guid isPermaLink="true">
+    /EuroBSDCon 2026/2026-09-10
+   </guid>
+   <description>
+    <![CDATA[]]>
+   </description>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Maker Days Eindhoven
+   </title>
+   <link>
+    https://makerdays.nl
+   </link>
+   <guid isPermaLink="true">
+    /Maker Days Eindhoven/2026-09-12
+   </guid>
+   <description>
+    <![CDATA[Makerdays]]>
+   </description>
+   <comments>
+    <![CDATA[Makerdays]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Open Monumentendag
+   </title>
+   <link>
+    https://www.openmonumentendag.nl
+   </link>
+   <guid isPermaLink="true">
+    /Open Monumentendag/2026-09-12
+   </guid>
+   <description>
+    <![CDATA[OpenDag]]>
+   </description>
+   <comments>
+    <![CDATA[OpenDag]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Brucon 2026
+   </title>
+   <link>
+    https://www.brucon.org/
+   </link>
+   <guid isPermaLink="true">
+    /Brucon 2026/2026-09-25
+   </guid>
+   <description>
+    <![CDATA[Security Conference]]>
+   </description>
+   <comments>
+    <![CDATA[Security Conference]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    International ADHD in the Park Day
+   </title>
+   <link>
+   </link>
+   <guid isPermaLink="true">
+    /International ADHD in the Park Day/2026-10-03
+   </guid>
+   <description>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </description>
+   <comments>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Open Source Summit Europe
+   </title>
+   <link>
+    https://events.linuxfoundation.org/open-source-summit-europe/
+   </link>
+   <guid isPermaLink="true">
+    /Open Source Summit Europe/2026-10-05
+   </guid>
+   <description>
+    <![CDATA[Many open-source conferences]]>
+   </description>
+   <comments>
+    <![CDATA[Many open-source conferences]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    HackFest
+   </title>
+   <link>
+    https://hackfest.nl/
+   </link>
+   <guid isPermaLink="true">
+    /HackFest/2026-10-10
+   </guid>
+   <description>
+    <![CDATA[HackerConf]]>
+   </description>
+   <comments>
+    <![CDATA[HackerConf]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Ada Lovelace Day
+   </title>
+   <link>
+    https://findingada.com
+   </link>
+   <guid isPermaLink="true">
+    /Ada Lovelace Day/2026-10-13
+   </guid>
+   <description>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </description>
+   <comments>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    eth0:2026 Autumn
+   </title>
+   <link>
+    https://wiki.eth0.nl/index.php/Eth0:2026_Autumn
+   </link>
+   <guid isPermaLink="true">
+    /eth0:2026 Autumn/2026-11-06
+   </guid>
+   <description>
+    <![CDATA[HackerConf]]>
+   </description>
+   <comments>
+    <![CDATA[HackerConf]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    HackerHotel 2027
+   </title>
+   <link>
+    https://www.hackerhotel.nl
+   </link>
+   <guid isPermaLink="true">
+    /HackerHotel 2027/2027-02-19
+   </guid>
+   <description>
+    <![CDATA[HackerConf]]>
+   </description>
+   <comments>
+    <![CDATA[HackerConf]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Backup Day
+   </title>
+   <link>
+    https://www.worldbackupday.com
+   </link>
+   <guid isPermaLink="true">
+    /World Backup Day/2027-03-31
+   </guid>
+   <description>
+    <![CDATA[The day to prevent data loss]]>
+   </description>
+   <comments>
+    <![CDATA[The day to prevent data loss]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Password Day
+   </title>
+   <link>
+    https://www.nationaldaycalendar.com/national-day/world-password-day-first-thursday-in-may
+   </link>
+   <guid isPermaLink="true">
+    /World Password Day/2027-05-06
+   </guid>
+   <description>
+    <![CDATA[Promote better password habits]]>
+   </description>
+   <comments>
+    <![CDATA[Promote better password habits]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Towel Day 2027
+   </title>
+   <link>
+    https://towelday.org
+   </link>
+   <guid isPermaLink="true">
+    /Towel Day 2027/2027-05-25
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    BornHack 2027
+   </title>
+   <link>
+    https://bornhack.dk/bornhack-2027/
+   </link>
+   <guid isPermaLink="true">
+    /BornHack 2027/2027-07-21
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    System Administrator Appreciation Day
+   </title>
+   <link>
+    https://sysadminday.com
+   </link>
+   <guid isPermaLink="true">
+    /System Administrator Appreciation Day/2027-07-30
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Open Monumentendag
+   </title>
+   <link>
+    https://www.openmonumentendag.nl
+   </link>
+   <guid isPermaLink="true">
+    /Open Monumentendag/2027-09-11
+   </guid>
+   <description>
+    <![CDATA[OpenDag]]>
+   </description>
+   <comments>
+    <![CDATA[OpenDag]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    International ADHD in the Park Day
+   </title>
+   <link>
+   </link>
+   <guid isPermaLink="true">
+    /International ADHD in the Park Day/2027-10-02
+   </guid>
+   <description>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </description>
+   <comments>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Ada Lovelace Day
+   </title>
+   <link>
+    https://findingada.com
+   </link>
+   <guid isPermaLink="true">
+    /Ada Lovelace Day/2027-10-12
+   </guid>
+   <description>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </description>
+   <comments>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Backup Day
+   </title>
+   <link>
+    https://www.worldbackupday.com
+   </link>
+   <guid isPermaLink="true">
+    /World Backup Day/2028-03-31
+   </guid>
+   <description>
+    <![CDATA[The day to prevent data loss]]>
+   </description>
+   <comments>
+    <![CDATA[The day to prevent data loss]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Password Day
+   </title>
+   <link>
+    https://www.nationaldaycalendar.com/national-day/world-password-day-first-thursday-in-may
+   </link>
+   <guid isPermaLink="true">
+    /World Password Day/2028-05-04
+   </guid>
+   <description>
+    <![CDATA[Promote better password habits]]>
+   </description>
+   <comments>
+    <![CDATA[Promote better password habits]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Towel Day 2028
+   </title>
+   <link>
+    https://towelday.org
+   </link>
+   <guid isPermaLink="true">
+    /Towel Day 2028/2028-05-25
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    BornHack 2028
+   </title>
+   <link>
+    https://bornhack.dk/bornhack-2028/
+   </link>
+   <guid isPermaLink="true">
+    /BornHack 2028/2028-07-19
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    System Administrator Appreciation Day
+   </title>
+   <link>
+    https://sysadminday.com
+   </link>
+   <guid isPermaLink="true">
+    /System Administrator Appreciation Day/2028-07-28
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Open Monumentendag
+   </title>
+   <link>
+    https://www.openmonumentendag.nl
+   </link>
+   <guid isPermaLink="true">
+    /Open Monumentendag/2028-09-09
+   </guid>
+   <description>
+    <![CDATA[OpenDag]]>
+   </description>
+   <comments>
+    <![CDATA[OpenDag]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    International ADHD in the Park Day
+   </title>
+   <link>
+   </link>
+   <guid isPermaLink="true">
+    /International ADHD in the Park Day/2028-10-07
+   </guid>
+   <description>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </description>
+   <comments>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Ada Lovelace Day
+   </title>
+   <link>
+    https://findingada.com
+   </link>
+   <guid isPermaLink="true">
+    /Ada Lovelace Day/2028-10-10
+   </guid>
+   <description>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </description>
+   <comments>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Backup Day
+   </title>
+   <link>
+    https://www.worldbackupday.com
+   </link>
+   <guid isPermaLink="true">
+    /World Backup Day/2029-03-31
+   </guid>
+   <description>
+    <![CDATA[The day to prevent data loss]]>
+   </description>
+   <comments>
+    <![CDATA[The day to prevent data loss]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Password Day
+   </title>
+   <link>
+    https://www.nationaldaycalendar.com/national-day/world-password-day-first-thursday-in-may
+   </link>
+   <guid isPermaLink="true">
+    /World Password Day/2029-05-03
+   </guid>
+   <description>
+    <![CDATA[Promote better password habits]]>
+   </description>
+   <comments>
+    <![CDATA[Promote better password habits]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Towel Day 2029
+   </title>
+   <link>
+    https://towelday.org
+   </link>
+   <guid isPermaLink="true">
+    /Towel Day 2029/2029-05-25
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    BornHack 2029
+   </title>
+   <link>
+    https://bornhack.dk/bornhack-2029/
+   </link>
+   <guid isPermaLink="true">
+    /BornHack 2029/2029-07-18
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    System Administrator Appreciation Day
+   </title>
+   <link>
+    https://sysadminday.com
+   </link>
+   <guid isPermaLink="true">
+    /System Administrator Appreciation Day/2029-07-27
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Open Monumentendag
+   </title>
+   <link>
+    https://www.openmonumentendag.nl
+   </link>
+   <guid isPermaLink="true">
+    /Open Monumentendag/2029-09-08
+   </guid>
+   <description>
+    <![CDATA[OpenDag]]>
+   </description>
+   <comments>
+    <![CDATA[OpenDag]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    International ADHD in the Park Day
+   </title>
+   <link>
+   </link>
+   <guid isPermaLink="true">
+    /International ADHD in the Park Day/2029-10-06
+   </guid>
+   <description>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </description>
+   <comments>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Ada Lovelace Day
+   </title>
+   <link>
+    https://findingada.com
+   </link>
+   <guid isPermaLink="true">
+    /Ada Lovelace Day/2029-10-09
+   </guid>
+   <description>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </description>
+   <comments>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Backup Day
+   </title>
+   <link>
+    https://www.worldbackupday.com
+   </link>
+   <guid isPermaLink="true">
+    /World Backup Day/2030-03-31
+   </guid>
+   <description>
+    <![CDATA[The day to prevent data loss]]>
+   </description>
+   <comments>
+    <![CDATA[The day to prevent data loss]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    World Password Day
+   </title>
+   <link>
+    https://www.nationaldaycalendar.com/national-day/world-password-day-first-thursday-in-may
+   </link>
+   <guid isPermaLink="true">
+    /World Password Day/2030-05-02
+   </guid>
+   <description>
+    <![CDATA[Promote better password habits]]>
+   </description>
+   <comments>
+    <![CDATA[Promote better password habits]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Towel Day 2030
+   </title>
+   <link>
+    https://towelday.org
+   </link>
+   <guid isPermaLink="true">
+    /Towel Day 2030/2030-05-25
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    BornHack 2030
+   </title>
+   <link>
+    https://bornhack.dk/bornhack-2030/
+   </link>
+   <guid isPermaLink="true">
+    /BornHack 2030/2030-07-17
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    System Administrator Appreciation Day
+   </title>
+   <link>
+    https://sysadminday.com
+   </link>
+   <guid isPermaLink="true">
+    /System Administrator Appreciation Day/2030-07-26
+   </guid>
+   <description>
+    <![CDATA[Celebration]]>
+   </description>
+   <comments>
+    <![CDATA[Celebration]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Open Monumentendag
+   </title>
+   <link>
+    https://www.openmonumentendag.nl
+   </link>
+   <guid isPermaLink="true">
+    /Open Monumentendag/2030-09-07
+   </guid>
+   <description>
+    <![CDATA[OpenDag]]>
+   </description>
+   <comments>
+    <![CDATA[OpenDag]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    International ADHD in the Park Day
+   </title>
+   <link>
+   </link>
+   <guid isPermaLink="true">
+    /International ADHD in the Park Day/2030-10-05
+   </guid>
+   <description>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </description>
+   <comments>
+    <![CDATA[Go to a favourite park with an ADHD book or magazine at noon.]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    Ada Lovelace Day
+   </title>
+   <link>
+    https://findingada.com
+   </link>
+   <guid isPermaLink="true">
+    /Ada Lovelace Day/2030-10-08
+   </guid>
+   <description>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </description>
+   <comments>
+    <![CDATA[International celebration of the achievements of women in STEM]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+  <item>
+   <title>
+    BornHack 2031
+   </title>
+   <link>
+    https://bornhack.dk/bornhack-2031/
+   </link>
+   <guid isPermaLink="true">
+    /BornHack 2031/2031-07-16
+   </guid>
+   <description>
+    <![CDATA[HackerCamp]]>
+   </description>
+   <comments>
+    <![CDATA[HackerCamp]]>
+   </comments>
+   <pubDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </pubDate>
+   <custom:endDate>
+    Mon, 18 May 2026 00:00:00 +0000
+   </custom:endDate>
+  </item>
+ </channel>
+</rss>

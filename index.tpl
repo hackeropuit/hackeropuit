@@ -54,9 +54,9 @@
         </span>
       </div>
       <div id="info-right">
-        <span id="icalfile"><a href="ical/all_events.ics">📅 [AllEvents.ics]</a></span>
         <span id="lastUpdated">Last edit: {{LASTEDIT}}</span>
         <span id="lastRefresh">Last refresh: {{LASTREFRESH}}</span>
+        <span id="rssFeed"><a href="rss.xml"><img src="rss.gif"></a></span>
       </div>
     </div>
 
