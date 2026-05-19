@@ -29,7 +29,18 @@ for filename in glob.glob("events/*.yaml"):
 # Filter and sort events
 for event in all_events:
     if event['EndDate'] >= event['StartDate'] and today <= event['EndDate']:
-        okevents.append(event)
+
+        # Quick fix: Force this specific order of fields, since the
+        # javascript code that processes this later does not take
+        # names into account.
+        okevent = {};
+        okevent['Name'] = event['Name'];
+        okevent['Location'] = event['Location'];
+        okevent['StartDate'] = event['StartDate'];
+        okevent['EndDate'] = event['EndDate'];
+        okevent['Comment'] = event['Comment'];
+        okevent['URL'] = event['URL'];
+        okevents.append(okevent)
 
 okevents.sort(key=eventdate)
 

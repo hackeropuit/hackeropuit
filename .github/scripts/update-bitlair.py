@@ -21,8 +21,8 @@ for cal_event in cal.subcomponents:
             "Location": str(cal_event["location"]),
             "StartDate": cal_event["dtstart"].dt.date(),
             "EndDate": cal_event["dtend"].dt.date(),
-            "URL": str(cal_event["url"]),
             "Comment": "",
+            "URL": str(cal_event["url"]),
         }
     )
 
