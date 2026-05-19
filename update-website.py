@@ -12,6 +12,11 @@ from email.utils import format_datetime
 import re
 
 # Configuration
+SITE_TITLE = 'Hackeropuit'
+SITE_DESC = 'Hacky events'
+SITE_URL = 'https://hackeropuit.nl'
+SITE_LANG = 'en-us'
+
 OUTPUTFILE = 'new_index.html'
 EVENTDIR = 'events'
 ICALDIR = 'ical'
@@ -22,18 +27,21 @@ AUTHORS = ("sigio,ubuntu-demon,kominoshja,tjclement,dekkers,JolienF,"
            "dvanzuilekom,elborro"
            )
 
-RSS_ATOM_NS = "http://www.w3.org/2005/Atom"
-RSS_CUSTOM_NS = "https://hackeropuit.nl"
+RSS_FILE = 'rss.xml'
 
 
 def read_event_data():
     """
     Read and preprocess all event.yaml files
+
+    Returns:
+    all_events -- list with all events represented dict per event
+    current_events -- list with current events represented by dict per event
     """
 
     # Read yaml event files
     all_events = []
-    yaml = ruamel_yaml.YAML(typ='safe', pure=True)
+    yaml = ruamel_yaml.YAML(typ="safe", pure=True)
     for filename in sorted(glob.glob(f"{EVENTDIR}/*.yaml")):
         try:
             print("Reading file:", filename)
@@ -48,8 +56,8 @@ def read_event_data():
 
                 for idx, event in enumerate(events):
                     filestem = Path(filename).stem
-                    event['file'] = filestem
-                    event['iCal'] = f"{ICALDIR}/{filestem}{idx}.ics"
+                    event["file"] = filestem
+                    event["iCal"] = f"{ICALDIR}/{filestem}{idx}.ics"
 
                 all_events.extend(events)
         except ruamel_yaml.YAMLError as ex:
@@ -59,7 +67,7 @@ def read_event_data():
 
 
     # Sort events in chronological order
-    all_events = sorted(all_events, key=itemgetter('StartDate'))
+    all_events = sorted(all_events, key=itemgetter("StartDate"))
 
 
     # Filter already passed events
@@ -67,8 +75,8 @@ def read_event_data():
     current_events = [
                        event
                        for event in all_events
-                       if event['StartDate'] <= event['EndDate']
-                       and today <= event['EndDate']
+                       if event["StartDate"] <= event["EndDate"]
+                       and today <= event["EndDate"]
                       ]
 
     return all_events, current_events
@@ -77,6 +85,11 @@ def read_event_data():
 def generate_icalendar_files(all_events, current_events, current_time):
     """
     Clean iCal folder and create all .ics files
+
+    Keyword arguments:
+    all_events -- list with all events represented by dict per event
+    current_events -- list with current events represented by dict per event
+    current_time -- datetime with time at startup
     """
 
     # Clean up iCalender folder
@@ -89,46 +102,46 @@ def generate_icalendar_files(all_events, current_events, current_time):
 
     # Generate iCalendar file with all events
     cal = Calendar()
-    cal.add('prodid', '-//Hack er op uit//hackeropuit.nl//')
-    cal.add('version', '2.0')
+    cal.add("prodid", "-//Hack er op uit//hackeropuit.nl//")
+    cal.add("version", "2.0")
 
     for evt in all_events:
         event = Event()
-        event.add('dtstamp', current_time)
-        event.add('uid', f"/{evt['Name']}/{evt['StartDate']}")
-        event.add('summary', evt['Name'])
-        event.add('transp', 'TRANSPARENT')
-        event.add('dtstart', evt['StartDate'])
-        event.add('dtend', evt['EndDate'] + timedelta(days=1))
-        event.add('location', evt.get('Location'))
-        event.add('description', evt.get('Comment'))
-        event.add('url', evt.get('URL'))
+        event.add("dtstamp", current_time)
+        event.add("uid", f"/{evt['Name']}/{evt['StartDate']}")
+        event.add("summary", evt["Name"])
+        event.add("transp", "TRANSPARENT")
+        event.add("dtstart", evt["StartDate"])
+        event.add("dtend", evt["EndDate"] + timedelta(days=1))
+        event.add("location", evt.get("Location"))
+        event.add("description", evt.get("Comment"))
+        event.add("url", evt.get("URL"))
         cal.add_component(event)
 
-    with open(f"{ICALDIR}/all_events.ics", 'wb') as f:
+    with open(f"{ICALDIR}/all_events.ics", "wb") as f:
         f.write(cal.to_ical())
 
 
     # Generate iCalendar files per event source
-    files = list({event['file'] for event in all_events})
+    files = list({event["file"] for event in all_events})
     for file in files:
-        source_events = [event for event in all_events if event['file'] == file]
+        source_events = [event for event in all_events if event["file"] == file]
 
         cal = Calendar()
-        cal.add('prodid', '-//Hack er op uit//hackeropuit.nl//')
-        cal.add('version', '2.0')
+        cal.add("prodid", "-//Hack er op uit//hackeropuit.nl//")
+        cal.add("version", "2.0")
 
         for evt in source_events:
             event = Event()
-            event.add('dtstamp', current_time)
-            event.add('uid', f"/{evt['Name']}/{evt['StartDate']}")
-            event.add('summary', evt['Name'])
-            event.add('transp', 'TRANSPARENT')
-            event.add('dtstart', evt['StartDate'])
-            event.add('dtend', evt['EndDate'] + timedelta(days=1))
-            event.add('location', evt.get('Location'))
-            event.add('description', evt.get('Comment'))
-            event.add('url', evt.get('URL'))
+            event.add("dtstamp", current_time)
+            event.add("uid", f"/{evt['Name']}/{evt['StartDate']}")
+            event.add("summary", evt["Name"])
+            event.add("transp", "TRANSPARENT")
+            event.add("dtstart", evt["StartDate"])
+            event.add("dtend", evt["EndDate"] + timedelta(days=1))
+            event.add("location", evt.get("Location"))
+            event.add("description", evt.get("Comment"))
+            event.add("url", evt.get("URL"))
             cal.add_component(event)
 
         with open(f"{ICALDIR}/{file}.ics", 'wb') as f:
@@ -142,24 +155,30 @@ def generate_icalendar_files(all_events, current_events, current_time):
         cal.add('version', '2.0')
 
         event = Event()
-        event.add('dtstamp', current_time)
-        event.add('uid', f"/{evt['Name']}/{evt['StartDate']}")
-        event.add('summary', evt['Name'])
-        event.add('transp', 'TRANSPARENT')
-        event.add('dtstart', evt['StartDate'])
-        event.add('dtend', evt['EndDate'] + timedelta(days=1))
-        event.add('location', evt.get('Location'))
-        event.add('description', evt.get('Comment'))
-        event.add('url', evt.get('URL'))
+        event.add("dtstamp", current_time)
+        event.add("uid", f"/{evt['Name']}/{evt['StartDate']}")
+        event.add("summary", evt["Name"])
+        event.add("transp", "TRANSPARENT")
+        event.add("dtstart", evt["StartDate"])
+        event.add("dtend", evt["EndDate"] + timedelta(days=1))
+        event.add("location", evt.get("Location"))
+        event.add("description", evt.get("Comment"))
+        event.add("url", evt.get("URL"))
         cal.add_component(event)
 
-        with open(evt['iCal'], 'wb') as f:
+        with open(evt["iCal"], "wb") as f:
             f.write(cal.to_ical())
 
 
 def collect_key_information(current_time):
     """
     Fill meta information array 
+
+    Keyword arguments:
+    current_time -- datetime with time at startup
+
+    Returns:
+    dict with collected values
     """
 
     # Retrieve timestamp of youngest event file
@@ -189,16 +208,16 @@ def collect_key_information(current_time):
     try:
         # Read the file
         codeowners_list = []
-        with open('.github/CODEOWNERS', 'r', encoding='utf-8') as file:
+        with open(".github/CODEOWNERS", 'r', encoding="utf-8") as file:
             codeowners_file = file.read()
             codeowners_list = re.findall(r'@(\w+)', codeowners_file)
 
-        author_list = AUTHORS.split(',')
+        author_list = AUTHORS.split(",")
         author_list.extend(codeowners_list)
 
         author_list = [author.strip().lower() for author in author_list]
 
-        authors = ','.join(sorted(set(author_list)))
+        authors = ",".join(sorted(set(author_list)))
 
     except Exception as ex:
         print(f"Error retrieving authors : {ex}")
@@ -269,6 +288,13 @@ field_separators = [' ', '-']
 def split_by_separators(text, separators):
     """
     Split definition into separate fieldnames based on defined field separators
+
+    Keyword arguments:
+    text -- the text to split into multiple fragments
+    separators -- list with separators
+
+    Returns:
+    list with values filtered from text
     """
     escaped = [re.escape(sep) for sep in separators]
     pattern = f"({'|'.join(escaped)})"
@@ -278,6 +304,13 @@ def split_by_separators(text, separators):
 def get_field_value(event, column_name):
     """
     Get value based on definition in tablefmt
+
+    Keyword arguments:
+    event -- dict with event data
+    column_name -- name of column specifying event source and formatter
+
+    Returns:
+    text filled with event values formatted according to spec for column_name
     """
     formatted_value = ""
 
@@ -286,7 +319,7 @@ def get_field_value(event, column_name):
 
         retrieved = []
         values = []
-        fields = split_by_separators(fmt['field'], field_separators)
+        fields = split_by_separators(fmt["field"], field_separators)
 
         for field in fields:
             try:
@@ -303,7 +336,7 @@ def get_field_value(event, column_name):
         else:
             formatted_value = "".join(values)
 
-        if fmt['type'] == "url":
+        if fmt["type"] == "url":
             formatted_value = f"<a href='{formatted_value}'>{column_name}</a>"
 
     except Exception as ex:
@@ -315,14 +348,20 @@ def get_field_value(event, column_name):
 def get_column_class(column_name):
     """
     Get class name(s) based on definition in tablefmt
+
+    Keyword arguments:
+    column_name -- name of column specifying column classes
+
+    Returns:
+    text with all html class names defined for specified column
     """
     class_txt = ""
 
     fmt = tablefmt[column_name]
-    if fmt['hidden'] == 'y':
+    if fmt["hidden"] == "y":
         class_txt += "hidden-col"
 
-    if fmt['export'] == 'n':
+    if fmt["export"] == "n":
         if class_txt != "":
             class_txt += " "
         class_txt += "noexport"
@@ -335,6 +374,10 @@ def generate_index_html(current_events, key_info):
     Create new index.html by filling a copy of the index.tpl template
     1. Find and replace all meta data
     2. Create table with event information
+
+    Keyword arguments:
+    current_events -- list with current events represented by dict per event
+    key_info -- list with meta values
     """
 
     try:
@@ -353,10 +396,10 @@ def generate_index_html(current_events, key_info):
                 eventtable = soup.find(id="events")
 
                 if not eventtable:
-                    print('ERROR Eventtable ID not found')
+                    print("ERROR Eventtable ID not found")
                 else:
                     table = soup.new_tag("table")
-                    table['id'] = 'eventtable'
+                    table["id"] = "eventtable"
                     eventtable.append(table)
 
                     # Create header
@@ -368,15 +411,15 @@ def generate_index_html(current_events, key_info):
 
                     for idx, column_name in enumerate(tablefmt):
                         th = soup.new_tag("th")
-                        if tablefmt[column_name]['sortable'] == 'y':
-                            th['onclick'] = f'sortTable({idx})'
+                        if tablefmt[column_name]["sortable"] == "y":
+                            th["onclick"] = f"sortTable({idx})"
 
                         class_text = get_column_class(column_name)
                         if class_text != "":
-                            th['class'] = class_text
+                            th["class"] = class_text
 
                         label = column_name
-                        if tablefmt[column_name]['field'] == "iCal":
+                        if tablefmt[column_name]["field"] == "iCal":
                             label = f"<a href='ical/all_events.ics'>{label}</a>"
 
                         fragment_soup = BeautifulSoup(label, "html.parser")
@@ -388,15 +431,15 @@ def generate_index_html(current_events, key_info):
                     tbody = soup.new_tag("tbody")
                     table.append(tbody)
 
-                    rowpow = ''
+                    rowpow = ""
                     for idx, event in enumerate(current_events):
                         if idx % 2 == 0:
-                            rowpos = 'even'
+                            rowpos = "even"
                         else:
-                            rowpos = 'odd'
+                            rowpos = "odd"
 
                         tr = soup.new_tag("tr")
-                        tr['class'] = rowpos
+                        tr["class"] = rowpos
                         tbody.append(tr)
 
                         for column_name in tablefmt:
@@ -404,7 +447,7 @@ def generate_index_html(current_events, key_info):
 
                             class_text = get_column_class(column_name)
                             if class_text != "":
-                                td['class'] = class_text
+                                td["class"] = class_text
 
                             formatted_value = get_field_value(event, column_name)
                             fragment_soup = BeautifulSoup(formatted_value, "html.parser")
@@ -419,16 +462,21 @@ def generate_index_html(current_events, key_info):
                 print(f"Index written to {OUTPUTFILE}")
 
     except Exception as ex:
-        print(f'Error creating index.html: {ex}')
+        print(f"Error creating index.html: {ex}")
 
 
 # Convert ISO8601 string to RFC-2822 format required by RSS 2.0
 def rfc2822_date(date_value):
     """
     Convert ISO8601 string to RFC-2822 format required by RSS 2.0
+
+    Keyword arguments:
+    date_value -- date/time as ISO formatted string value, date, or datetime
+
+    Returns:
+    RFC2822 formatted string value as used in RSS 2.0, e-mail, etc.
     """
     rfcdate = ""
-
     dt = None
     if isinstance(date_value, date):
         dt = datetime.combine(date_value.today(), datetime.min.time())
@@ -450,9 +498,12 @@ def rfc2822_date(date_value):
 
     return rfcdate
 
-def generate_rss_feed(events, output_file, feed_url):
+def generate_rss_feed(events):
     """
     Create new RSS 2.0 compliant rss.xml file
+
+    Keyword arguments:
+    events -- events to represent in the xml file
     """
 
     # Create XML document
@@ -463,8 +514,7 @@ def generate_rss_feed(events, output_file, feed_url):
         "rss",
         version="2.0",
         **{
-            "xmlns:atom": RSS_ATOM_NS,
-            "xmlns:custom": RSS_CUSTOM_NS,
+            "xmlns:atom": "http://www.w3.org/2005/Atom"
         }
     )
     soup.append(rss)
@@ -475,24 +525,23 @@ def generate_rss_feed(events, output_file, feed_url):
 
     # Channel metadata
     title = soup.new_tag("title")
-    title.string = "Hackeropuit"
+    title.string = SITE_TITLE 
     channel.append(title)
 
     link = soup.new_tag("link")
-    link.string = "https://hackeropuit.nl"
+    link.string = SITE_URL
     channel.append(link)
 
     description = soup.new_tag("description")
-    description.string = "Hacky events"
+    description.string = SITE_DESC
     channel.append(description)
 
     language = soup.new_tag("language")
-    language.string = "en-us"
+    language.string = SITE_LANG
     channel.append(language)
 
     last_build = soup.new_tag("lastBuildDate")
     last_build.string = format_datetime(
-        #rfc2822_date(datetime.now(timezone.utc))
         datetime.now(timezone.utc)
     )
     channel.append(last_build)
@@ -500,7 +549,7 @@ def generate_rss_feed(events, output_file, feed_url):
     # atom:link self-reference
     atom_link = soup.new_tag(
         "atom:link",
-        href=feed_url,
+        href=f"{SITE_URL}/{RSS_FILE}",
         rel="self",
         type="application/rss+xml"
     )
@@ -508,108 +557,75 @@ def generate_rss_feed(events, output_file, feed_url):
 
     # Feed items
     for event in events:
-        item = soup.new_tag("item")
-        channel.append(item)
+        # Only accept events with all RSS mandatory fields supplied
+        if event["Name"] and event["URL"] and event["Comment"]:
+            item = soup.new_tag("item")
+            channel.append(item)
 
-        # title
-        item_title = soup.new_tag("title")
-        item_title.string = event['Name']
-        item.append(item_title)
+            # title
+            item_title = soup.new_tag("title")
+            item_title.string = event["Name"]
+            item.append(item_title)
 
-        # link
-        link = ""
-        if event["URL"]:
-            link = event["URL"]
+            # link
+            item_link = soup.new_tag("link")
+            item_link.string = event["URL"]
+            item.append(item_link)
 
-        item_link = soup.new_tag("link")
-        item_link.string = link
-        item.append(item_link)
-
-        # guid
-        guid = soup.new_tag(
-            "guid",
-            isPermaLink="true"
-        )
-        guid.string = f"/{event['Name']}/{event['StartDate']}"
-        item.append(guid)
-
-        # description
-        description = ""
-        if event["Comment"]:
-            description = event["Comment"]
-        item_description = soup.new_tag("description")
-        item_description.append(
-            CData(description)
-        )
-        item.append(item_description)
-
-        # comments
-        if event["Comment"]:
-            comments = soup.new_tag("comments")
-            comments.append(
+            # description
+            item_description = soup.new_tag("description")
+            item_description.append(
                 CData(event["Comment"])
             )
-            item.append(comments)
+            item.append(item_description)
 
-        # pubDate
-        if event["StartDate"]:
-            try:
-                pub_date = soup.new_tag("pubDate")
-                pub_date.string = rfc2822_date(event["StartDate"])
-                item.append(pub_date)
+            # guid
+            guid = soup.new_tag(
+                "guid",
+                isPermaLink="false"
+            )
+            guid.string = "".join(f"{event['Name']}:{event['StartDate']}".split())
+            item.append(guid)
 
-            except Exception as e:
-                print(
-                    f"Invalid startdate "
-                    f"{event['StartDate']}: {e}"
-                )
+            # pubDate
+            if event["StartDate"]:
+                try:
+                    pub_date = soup.new_tag("pubDate")
+                    pub_date.string = rfc2822_date(event["StartDate"])
+                    item.append(pub_date)
 
-        # custom:endDate
-        if event["EndDate"]:
-            try:
-                end_date = soup.new_tag("custom:endDate")
-                end_date.string = rfc2822_date(event["EndDate"])
-                item.append(end_date)
-
-            except Exception as e:
-                print(
-                    f"Invalid enddate "
-                    f"{event['EndDate']}: {e}"
-                )
-                
+                except Exception as e:
+                    print(
+                        f"Invalid startdate "
+                        f"{event['StartDate']}: {e}"
+                    )
 
     # Write XML output
-    with open(output_file, "w", encoding="utf-8") as f:
+    with open(RSS_FILE, "w", encoding="utf-8") as f:
         f.write(soup.prettify())
 
-    print(f"RSS feed written to {output_file}")
-
-
+    print(f"RSS feed written to {RSS_FILE}")
 
 
 def main():
-
     # Store current time to use the same timestamp in all generated files
     now = datetime.now(timezone.utc)
 
+    # Read all event.yaml files
     all_events, current_events = read_event_data()
 
-    generate_icalendar_files(
-        all_events = all_events,
-        current_events = current_events,
-        current_time = now
-    )
+    # Create/refresh all .ics files
+    generate_icalendar_files(all_events, current_events, now)
 
+    # Collect meta information
     key_info = collect_key_information(now)
 
-    generate_index_html(current_events,key_info)
+    # Create/refresh index.html
+    generate_index_html(current_events, key_info)
 
-    generate_rss_feed(
-        events=current_events,
-        output_file="rss.xml",
-        feed_url="https://hackeropuit.nl/rss.xml"
-    )
-
+    # Create/refresh rss.xml
+    generate_rss_feed(current_events)
+    #generate_rss_event_feed(current_events)
 
 if __name__ == "__main__":
     main()
