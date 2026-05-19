@@ -26,9 +26,9 @@
     <meta name="generator" content="HackerErOpUit" />
     <meta name="generator_version" content="{{GENERATOR_VERSION}}" />
     <meta name="generator_revision" content="{{GENERATOR_REVISION}}" />
-    <meta name="generator_author" content="sigio,foobar,elborro">
+    <meta name="generator_author" content="sigio,foobar,elborro" />
     <meta name="robots" content="noindex" />
-    <meta name='revisit-after' content='7 days'>
+    <meta name='revisit-after' content='7 days' />
     <meta name="googlebot" content="notranslate" />
     <meta name="googlebot-news" content="nosnippet" /> 
     <link rel="canonical" href="https://hackeropuit.nl" />
