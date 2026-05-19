@@ -20,7 +20,7 @@ SITE_LANG = 'en-us'
 OUTPUTFILE = 'new_index.html'
 EVENTDIR = 'events'
 ICALDIR = 'ical'
-VERSION = '1.0'
+VERSION = '2.0'
 AUTHORS = ("sigio,ubuntu-demon,kominoshja,tjclement,dekkers,JolienF,"
            "dutchmartin,amarsman,brainsmoke,eloydegen,juerd,stappersg,"
            "xesxen,mischapeters,polyfloyd,zeno4ever,toshywoshy,boekenwuurm,"
@@ -605,6 +605,122 @@ def generate_rss_feed(events):
         f.write(soup.prettify())
 
     print(f"RSS feed written to {RSS_FILE}")
+
+def generate_rss_event_feed(events):
+    """
+    Create new RSS 2.0 compliant rss.xml events file
+
+    Keyword arguments:
+    events -- events to represent in the xml file
+    """
+
+    # https://web.resource.org/rss/1.0/modules/event/
+    # https://validator.w3.org/feed/docs/howto/declare_namespaces.html
+    # https://validator.w3.org/feed/check.cgi
+    # http://www.gsite.org/RSS/modules/event_dates/
+    # https://cyber.harvard.edu/rss/
+    # https://www.rssboard.org/rss-specification
+
+    # Create XML document
+    soup = BeautifulSoup(features="xml")
+
+    # Root RSS tag
+    rss = soup.new_tag(
+        "rss",
+        version="2.0",
+        **{
+            "xmlns:ev": "http://purl.org/rss/2.0/modules/event/"
+        }
+    )
+    soup.append(rss)
+
+    # Channel
+    channel = soup.new_tag("channel")
+    rss.append(channel)
+
+    # Channel metadata
+    title = soup.new_tag("title")
+    title.string = SITE_TITLE 
+    channel.append(title)
+
+    link = soup.new_tag("link")
+    link.string = SITE_URL
+    channel.append(link)
+
+    description = soup.new_tag("description")
+    description.string = SITE_DESC
+    channel.append(description)
+
+    language = soup.new_tag("language")
+    language.string = SITE_LANG
+    channel.append(language)
+
+    last_build = soup.new_tag("lastBuildDate")
+    last_build.string = format_datetime(
+        datetime.now(timezone.utc)
+    )
+    channel.append(last_build)
+
+    # atom:link self-reference
+    atom_link = soup.new_tag(
+        "atom:link",
+        href=f"{SITE_URL}/{RSS_FILE}",
+        rel="self",
+        type="application/rss+xml"
+    )
+    channel.append(atom_link)
+
+    # Feed items
+    for event in events:
+        # Only accept events with all RSS mandatory fields supplied
+        if event["Name"] and event["URL"] and event["Comment"]:
+            item = soup.new_tag("item")
+            channel.append(item)
+
+            # title
+            item_title = soup.new_tag("title")
+            item_title.string = event["Name"]
+            item.append(item_title)
+
+            # link
+            item_link = soup.new_tag("link")
+            item_link.string = event["URL"]
+            item.append(item_link)
+
+            # description
+            item_description = soup.new_tag("description")
+            item_description.append(
+                CData(event["Comment"])
+            )
+            item.append(item_description)
+
+            # guid
+            guid = soup.new_tag(
+                "guid",
+                isPermaLink="false"
+            )
+            guid.string = "".join(f"{event['Name']}:{event['StartDate']}".split())
+            item.append(guid)
+
+            # pubDate
+            if event["StartDate"]:
+                try:
+                    pub_date = soup.new_tag("pubDate")
+                    pub_date.string = rfc2822_date(event["StartDate"])
+                    item.append(pub_date)
+
+                except Exception as e:
+                    print(
+                        f"Invalid startdate "
+                        f"{event['StartDate']}: {e}"
+                    )
+
+
+    # Write XML output
+    with open(RSS_FILE, "w", encoding="utf-8") as f:
+        f.write(soup.prettify())
+
+    print(f"RSS event feed written to {RSS_FILE}")
 
 
 def main():
