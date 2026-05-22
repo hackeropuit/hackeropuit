@@ -15,7 +15,7 @@
     <meta name="revised" content="{{NOW}}" />
     <meta name="url" content="https://hackeropuit.nl" />
     <meta name="identifier-url" content="https://hackeropuit.nl" />
-    <meta property="og:image" content="https://hackeropuit.nl/images/hackeropuit_logo_436_2.png" />
+    <meta property="og:image" content="hackeropuit-header.jpg" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="436" />
     <meta property="og:image:height" content="228" />

@@ -1,8 +1,31 @@
 #!/usr/bin/env python3
 
+# Install required libraries in environment
+# pip install ruamel.yaml
+# pip install icalendar
+# pip install beautifulsoup4
+# pip install lxml
+
+
+# Dependencies
+# * Directories
+#   - events
+#   - ical
+# * Files
+#   - .github/CODEOWNERS
+#   - favicon.ico
+#   - hackeropuit.css
+#   - hackeropuit.js
+#   - hackeropuit-header.jpg
+#   - hackeropuit-index.tpl
+#   - OCRAStd.woff
+#   - rss.gif
+#   - update-website.py
+
+
 import os
 import glob
-import ruamel.yaml as ruamel_yaml
+from ruamel.yaml import YAML, YAMLError
 from pathlib import Path
 from operator import itemgetter
 from datetime import datetime, date, timedelta, timezone
@@ -41,7 +64,7 @@ def read_event_data():
 
     # Read yaml event files
     all_events = []
-    yaml = ruamel_yaml.YAML(typ="safe", pure=True)
+    yaml = YAML(typ="safe", pure=True)
     for filename in sorted(glob.glob(f"{EVENTDIR}/*.yaml")):
         try:
             print("Reading file:", filename)
@@ -60,7 +83,7 @@ def read_event_data():
                     event["iCal"] = f"{ICALDIR}/{filestem}{idx}.ics"
 
                 all_events.extend(events)
-        except ruamel_yaml.YAMLError as ex:
+        except YAMLError as ex:
             print(f"Error parsing {filename}: {ex}")
         except Exception as ex:
             print(f"Error handling {filename}: {ex}")
@@ -204,23 +227,20 @@ def collect_key_information(current_time):
     # Determine authors
     # 1. Use manual maintained author list and
     # 2. update with whomever is mentioned in codeowners file
-    authors = ""
+    author_list = AUTHORS.split(",")
     try:
         # Read the file
         codeowners_list = []
         with open(".github/CODEOWNERS", 'r', encoding="utf-8") as file:
             codeowners_file = file.read()
             codeowners_list = re.findall(r'@(\w+)', codeowners_file)
-
-        author_list = AUTHORS.split(",")
-        author_list.extend(codeowners_list)
-
-        author_list = [author.strip().lower() for author in author_list]
-
-        authors = ",".join(sorted(set(author_list)))
+            author_list.extend(codeowners_list)
 
     except Exception as ex:
         print(f"Error retrieving authors : {ex}")
+
+    author_list = [author.strip().lower() for author in author_list]
+    authors = ",".join(sorted(set(author_list)))
 
 
     # Store results in info dictionary
@@ -371,7 +391,7 @@ def get_column_class(column_name):
 
 def generate_index_html(current_events, key_info):
     """
-    Create new index.html by filling a copy of the index.tpl template
+    Create new index.html by using hackeropuit-index.tpl template
     1. Find and replace all meta data
     2. Create table with event information
 
@@ -381,7 +401,7 @@ def generate_index_html(current_events, key_info):
     """
 
     try:
-        with open("index.tpl", "r", encoding="utf-8") as htmlfile:
+        with open("hackeropuit-index.tpl", "r", encoding="utf-8") as htmlfile:
             content = htmlfile.read()
 
             # Find and replace all keys
