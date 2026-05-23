@@ -44,7 +44,7 @@ OUTPUTFILE = "new_index.html"
 RSS_FILE = "rss.xml"
 RSS_DAYS = 180
 
-ATOM_FILE = "atom_rss.xml"
+ATOM_FILE = "atom.xml"
 ATOM_DAYS = 180
 ATOM_CATS = "Hackers,Workshops,Events,Festivities"
 
