@@ -6,7 +6,6 @@
 # pip install beautifulsoup4
 # pip install lxml
 
-
 # Dependencies
 # * Directories
 #   - events
@@ -35,22 +34,27 @@ from email.utils import format_datetime
 import re
 
 # Configuration
-SITE_TITLE = 'Hackeropuit'
-SITE_DESC = 'Hacky events'
-SITE_URL = 'https://hackeropuit.nl'
-SITE_LANG = 'en-us'
+SITE_TITLE = "Hackeropuit"
+SITE_DESC = "The best overview of which cool maker events, festive parties, educational workshops, and other remarkable events are coming up."
+SITE_URL = "https://hackeropuit.nl"
+SITE_LANG = "en-us"
 
-OUTPUTFILE = 'new_index.html'
-EVENTDIR = 'events'
-ICALDIR = 'ical'
-VERSION = '2.0'
+OUTPUTFILE = "new_index.html"
+RSS_FILE = "rss.xml"
+RSS_DAYS = 180
+
+ATOM_FILE = "atom_rss.xml"
+ATOM_DAYS = 180
+ATOM_CATS = "Hackers,Workshops,Events,Festivities"
+
+EVENTDIR = "events"
+ICALDIR = "ical"
+VERSION = "2.0"
 AUTHORS = ("sigio,ubuntu-demon,kominoshja,tjclement,dekkers,JolienF,"
            "dutchmartin,amarsman,brainsmoke,eloydegen,juerd,stappersg,"
            "xesxen,mischapeters,polyfloyd,zeno4ever,toshywoshy,boekenwuurm,"
            "dvanzuilekom,elborro"
            )
-
-RSS_FILE = 'rss.xml'
 
 
 def read_event_data():
@@ -68,6 +72,9 @@ def read_event_data():
     for filename in sorted(glob.glob(f"{EVENTDIR}/*.yaml")):
         try:
             print("Reading file:", filename)
+
+            pubDate = datetime.fromtimestamp(os.path.getmtime(filename), tz=timezone.utc)
+
             with open(filename, "r", encoding="utf-8") as eventfile:
                 eventdata = yaml.load(eventfile)
 
@@ -81,6 +88,23 @@ def read_event_data():
                     filestem = Path(filename).stem
                     event["file"] = filestem
                     event["iCal"] = f"{ICALDIR}/{filestem}{idx}.ics"
+                    event["pubDate"] = pubDate
+
+                    # OPTIONAL new fields to enrich information in feeds (atom)
+                    if not "Authors" in event:
+                        event["Authors"] = None
+
+                    if not "Summary" in event:
+                        event["Summary"] = None
+
+                    if not "Content" in event:
+                        event["Content"] = None
+
+                    if not "Categories" in event:
+                        event["Categories"] = None
+
+                    if not "Contributors" in event:
+                        event["Contributors"] = None
 
                 all_events.extend(events)
         except YAMLError as ex:
@@ -499,12 +523,15 @@ def rfc2822_date(date_value):
     rfcdate = ""
     dt = None
     if isinstance(date_value, date):
-        dt = datetime.combine(date_value.today(), datetime.min.time())
+        dt = datetime.combine(date_value, datetime.min.time())
+        #print(f"1a {date_value} : {str(dt)}")
     elif isinstance(date_value, datetime):
         dt = date_value
+        #print(f"1b {date_value} : {str(dt)}")
     elif isinstance(date_value, str):
         try:
             dt = datetime.fromisoformat(date_value)
+            #print(f"1c {date_value} : {str(dt)}")
         except Exception as e:
             print(
                 f"Invalid date {date_value}: {e}"
@@ -514,16 +541,19 @@ def rfc2822_date(date_value):
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
 
+        #print(f"2 {date_value} : {str(dt)}")
         rfcdate = format_datetime(dt)
+        #print(f"3 {date_value} : {rfcdate}")
 
     return rfcdate
 
-def generate_rss_feed(events):
+def generate_rss_feed(events, now):
     """
     Create new RSS 2.0 compliant rss.xml file
 
     Keyword arguments:
     events -- events to represent in the xml file
+    now -- timestamp with current date and time
     """
 
     # Create XML document
@@ -575,10 +605,24 @@ def generate_rss_feed(events):
     )
     channel.append(atom_link)
 
+    rss_delta = date.today() + timedelta(days=RSS_DAYS)
+    rss_events = [
+                   event
+                   for event in events
+                   if event["StartDate"] <= rss_delta
+                  ]
+
     # Feed items
-    for event in events:
+    for event in rss_events:
         # Only accept events with all RSS mandatory fields supplied
-        if event["Name"] and event["URL"] and event["Comment"]:
+        # AND StartDate and EndDate
+        if (
+            event["Name"] 
+            and event["URL"]
+            and event["Comment"]
+            and event['StartDate']
+            and event['EndDate']
+        ):
             item = soup.new_tag("item")
             channel.append(item)
 
@@ -594,31 +638,24 @@ def generate_rss_feed(events):
 
             # description
             item_description = soup.new_tag("description")
-            item_description.append(
-                CData(event["Comment"])
-            )
+            description = get_field_value(event, 'Date') + "<br>" + event["Comment"]
+            item_description.append(CData(description))
             item.append(item_description)
 
             # guid
             guid = soup.new_tag(
                 "guid",
-                isPermaLink="false"
+                isPermaLink="true"
             )
-            guid.string = "".join(f"{event['Name']}:{event['StartDate']}".split())
+            guid.string = f"{SITE_URL}/{event['iCal']}"
             item.append(guid)
 
             # pubDate
-            if event["StartDate"]:
-                try:
-                    pub_date = soup.new_tag("pubDate")
-                    pub_date.string = rfc2822_date(event["StartDate"])
-                    item.append(pub_date)
-
-                except Exception as e:
-                    print(
-                        f"Invalid startdate "
-                        f"{event['StartDate']}: {e}"
-                    )
+            pub_date = soup.new_tag("pubDate")
+            #pub_date.string = rfc2822_date(event["StartDate"])
+            pub_date.string = rfc2822_date(event["pubDate"])
+            #pub_date.string = str(event["pubDate"])
+            item.append(pub_date)
 
     # Write XML output
     with open(RSS_FILE, "w", encoding="utf-8") as f:
@@ -626,121 +663,234 @@ def generate_rss_feed(events):
 
     print(f"RSS feed written to {RSS_FILE}")
 
-def generate_rss_event_feed(events):
+def generate_atom_feed(events, now):
     """
-    Create new RSS 2.0 compliant rss.xml events file
+    Create new ATOM 1.0 compliant news feed
 
     Keyword arguments:
     events -- events to represent in the xml file
+    now -- timestamp with current date and time
     """
 
-    # https://web.resource.org/rss/1.0/modules/event/
-    # https://validator.w3.org/feed/docs/howto/declare_namespaces.html
-    # https://validator.w3.org/feed/check.cgi
-    # http://www.gsite.org/RSS/modules/event_dates/
-    # https://cyber.harvard.edu/rss/
-    # https://www.rssboard.org/rss-specification
+    # https://validator.w3.org/feed/docs/atom.html
 
     # Create XML document
     soup = BeautifulSoup(features="xml")
 
     # Root RSS tag
-    rss = soup.new_tag(
-        "rss",
-        version="2.0",
+    feed = soup.new_tag(
+        "feed",
+        #version="2.0",
         **{
-            "xmlns:ev": "http://purl.org/rss/2.0/modules/event/"
+            "xmlns": "http://www.w3.org/2005/Atom",
+            "xmlns:thr": "http://purl.org/syndication/thread/1.0",
+            "xml:lang": SITE_LANG
         }
     )
-    soup.append(rss)
+    soup.append(feed)
 
-    # Channel
-    channel = soup.new_tag("channel")
-    rss.append(channel)
+    # Feed ID
+    feedid = soup.new_tag("id")
+    feedid.string = f"{SITE_URL}/{ATOM_FILE}"
+    feed.append(feedid)
 
-    # Channel metadata
-    title = soup.new_tag("title")
-    title.string = SITE_TITLE 
-    channel.append(title)
-
-    link = soup.new_tag("link")
-    link.string = SITE_URL
-    channel.append(link)
-
-    description = soup.new_tag("description")
-    description.string = SITE_DESC
-    channel.append(description)
-
-    language = soup.new_tag("language")
-    language.string = SITE_LANG
-    channel.append(language)
-
-    last_build = soup.new_tag("lastBuildDate")
-    last_build.string = format_datetime(
-        datetime.now(timezone.utc)
+    # Feed Site reference
+    link = soup.new_tag(
+        "link",
+        **{
+            "rel": "alternate",
+            "type": "text/html",
+            "href": SITE_URL
+        }
     )
-    channel.append(last_build)
+    feed.append(link)
 
-    # atom:link self-reference
+    # Feed Atom reference
     atom_link = soup.new_tag(
-        "atom:link",
-        href=f"{SITE_URL}/{RSS_FILE}",
-        rel="self",
-        type="application/rss+xml"
+        "link",
+        **{
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": f"{SITE_URL}/{ATOM_FILE}"
+        }
     )
-    channel.append(atom_link)
+    feed.append(atom_link)
 
-    # Feed items
-    for event in events:
+    # Feed title
+    title = soup.new_tag(
+        "title",
+        **{
+            "type": "text"
+        }
+    )
+    title.string = SITE_TITLE 
+    feed.append(title)
+
+    # Feed subtitle
+    subtitle = soup.new_tag(
+        "subtitle",
+        **{
+            "type": "text"
+        }
+    )
+    subtitle.string = SITE_DESC 
+    feed.append(subtitle)
+
+    # Feed update timestamp
+    updated = soup.new_tag("updated")
+    updated.string = now.isoformat()
+    feed.append(updated)
+
+    # categories
+    categories = ATOM_CATS.split(",")
+    for category in categories:
+        atom_category = soup.new_tag(
+            "category",
+            **{
+                "scheme": SITE_URL,
+                "term": category
+            }
+        )
+        feed.append(atom_category)
+
+    # Feed icon
+    icon = soup.new_tag("icon")
+    icon.string = f"{SITE_URL}/{ATOM_FILE}"
+    feed.append(icon)
+
+    # Filter feed content items ready to publish
+    atom_delta = date.today() + timedelta(days=ATOM_DAYS)
+    atom_events = [
+                   event
+                   for event in events
+                   if event["StartDate"] <= atom_delta
+                  ]
+
+    # Feed content
+    for event in atom_events:
         # Only accept events with all RSS mandatory fields supplied
-        if event["Name"] and event["URL"] and event["Comment"]:
-            item = soup.new_tag("item")
-            channel.append(item)
+        # AND StartDate and EndDate
+        if (
+            event["Name"] 
+            and event["URL"]
+            and event["Comment"]
+            and event['StartDate']
+            and event['EndDate']
+        ):
+            entry = soup.new_tag("entry")
+            feed.append(entry)
+
+            # id
+            entry_id = soup.new_tag("id")
+            entry_id.string = f"{SITE_URL}/{event['iCal']}"
+            entry.append(entry_id)
 
             # title
-            item_title = soup.new_tag("title")
-            item_title.string = event["Name"]
-            item.append(item_title)
+            entry_title = soup.new_tag(
+                "title",
+                **{
+                    "type": "html"
+                }
+            )
+            entry_title.string = CData(event["Name"])
+            entry.append(entry_title)
+
+            # updated 
+            entry_updated = soup.new_tag("updated")
+            entry_updated.string = event["pubDate"].isoformat()
+            entry.append(entry_updated)
 
             # link
-            item_link = soup.new_tag("link")
-            item_link.string = event["URL"]
-            item.append(item_link)
-
-            # description
-            item_description = soup.new_tag("description")
-            item_description.append(
-                CData(event["Comment"])
+            entry_link = soup.new_tag(
+                "link",
+                **{
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "href": event["URL"]
+                }
             )
-            item.append(item_description)
+            entry.append(entry_link)
 
-            # guid
-            guid = soup.new_tag(
-                "guid",
-                isPermaLink="false"
+            # author
+            if event["Authors"]:
+                entry_author = soup.new_tag("author")
+
+                authors = event["Authors"].split(",")
+                for author in authors:
+                    author_name = soup.new_tag("name")
+                    author_name.string = author
+                    entry_author.append(author_name)
+
+                entry.append(entry_author)
+
+            # summary
+            summary = ""
+            if event["Summary"]:
+                summary = event["Summary"]
+            else:
+                summary = get_field_value(event, 'Date') + " " + event["Comment"]
+
+            entry_summary = soup.new_tag(
+                "summary",
+                **{
+                    "type": "html"
+                }
             )
-            guid.string = "".join(f"{event['Name']}:{event['StartDate']}".split())
-            item.append(guid)
+            entry_summary.string = CData(summary)
+            entry.append(entry_summary)
 
-            # pubDate
-            if event["StartDate"]:
-                try:
-                    pub_date = soup.new_tag("pubDate")
-                    pub_date.string = rfc2822_date(event["StartDate"])
-                    item.append(pub_date)
+            # content
+            content = ""
+            if event["Content"]:
+                content = event["Content"]
+            else:
+                content = event["Comment"]
 
-                except Exception as e:
-                    print(
-                        f"Invalid startdate "
-                        f"{event['StartDate']}: {e}"
+            entry_content = soup.new_tag(
+                "content",
+                **{
+                    "type": "html"
+                }
+            )
+            entry_content.string = CData(content)
+            entry.append(entry_content)
+
+            # published 
+            entry_pubdate = soup.new_tag("published")
+            entry_pubdate.string = event["pubDate"].isoformat()
+            entry.append(entry_pubdate)
+
+            # categories
+            if event["Categories"]:
+                categories = event["Categories"].split(",")
+                for category in categories:
+                    entry_category = soup.new_tag(
+                        "category",
+                        **{
+                            "scheme": SITE_URL,
+                            "term": category
+                        }
                     )
+                    entry.append(entry_category)
+
+            # contributors
+            if event["Contributors"]:
+                entry_contributor = soup.new_tag("contributor")
+
+                contributors = event["Contributors"].split(",")
+                for contributor in contributors:
+                    contributor_name = soup.new_tag("name")
+                    contributor_name.string = contributor
+                    entry_contributor.append(contributor_name)
+
+                entry.append(entry_contributor)
 
 
     # Write XML output
-    with open(RSS_FILE, "w", encoding="utf-8") as f:
+    with open(ATOM_FILE, "w", encoding="utf-8") as f:
         f.write(soup.prettify())
 
-    print(f"RSS event feed written to {RSS_FILE}")
+    print(f"ATOM feed written to {ATOM_FILE}")
 
 
 def main():
@@ -760,8 +910,10 @@ def main():
     generate_index_html(current_events, key_info)
 
     # Create/refresh rss.xml
-    generate_rss_feed(current_events)
-    #generate_rss_event_feed(current_events)
+    generate_rss_feed(current_events, now)
+
+    # Create/refresh atom_rss.xml
+    generate_atom_feed(current_events, now)
 
 if __name__ == "__main__":
     main()
