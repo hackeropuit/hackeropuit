@@ -40,6 +40,7 @@ SITE_URL = "https://hackeropuit.nl"
 SITE_LANG = "en-us"
 
 OUTPUTFILE = "new_index.html"
+
 RSS_FILE = "rss.xml"
 RSS_DAYS = 180
 
@@ -216,7 +217,6 @@ def generate_icalendar_files(all_events, current_events, current_time):
         with open(evt["iCal"], "wb") as f:
             f.write(cal.to_ical())
 
-
 def collect_key_information(current_time):
     """
     Fill meta information array 
@@ -277,7 +277,9 @@ def collect_key_information(current_time):
                                           .isoformat(),
         "{{LASTREFRESH}}": current_time.strftime("%Y-%m-%d %H:%M"),
         "{{LASTEDIT}}": youngest_event_file.strftime("%Y-%m-%d %H:%M"),
-        "{{AUTHORS}}": authors
+        "{{AUTHORS}}": authors,
+        "{{RSSFEED}}": f"{SITE_URL}/{RSS_FILE}",
+        "{{ATOMFEED}}": f"{SITE_URL}/{ATOM_FILE}"
     }
 
     return keys
@@ -412,6 +414,25 @@ def get_column_class(column_name):
 
     return class_txt
 
+def pretty_minify(soup, formatter="minimal"):
+    """
+    Convert the beautifulsoup structure into a nicely formatted xml
+    structure, but wihout the excessive whitespace what's breaking
+    some online xml formats like Atom.
+
+    Keyword arguments:
+    soup -- filled beautifulsoup instance to format
+    soup -- filled beautifulsoup instance to format
+
+    Returns:
+    Text with minified pretty xml structure
+    """
+    minified = re.sub(
+        r'(<(\w+)[^>]*>)\s*([^<\n][^<]*?)\s*(</\2>)',
+        lambda m: f"{m.group(1)}{m.group(3).strip()}{m.group(4)}",
+        soup.prettify(formatter=formatter)
+    )
+    return minified
 
 def generate_index_html(current_events, key_info):
     """
@@ -499,7 +520,7 @@ def generate_index_html(current_events, key_info):
                                 td.append(child)
                             tr.append(td)
 
-            pretty_safe_html = soup.prettify(formatter="html")
+            pretty_safe_html = pretty_minify(soup, formatter="html")
             with open(OUTPUTFILE, "w", encoding="utf-8") as htmlfile:
                 htmlfile.write(str(pretty_safe_html))
     
@@ -508,8 +529,8 @@ def generate_index_html(current_events, key_info):
     except Exception as ex:
         print(f"Error creating index.html: {ex}")
 
-
 # Convert ISO8601 string to RFC-2822 format required by RSS 2.0
+# This thing is butt ugly and needs a revisit/rewrite later.
 def rfc2822_date(date_value):
     """
     Convert ISO8601 string to RFC-2822 format required by RSS 2.0
@@ -659,7 +680,7 @@ def generate_rss_feed(events, now):
 
     # Write XML output
     with open(RSS_FILE, "w", encoding="utf-8") as f:
-        f.write(soup.prettify())
+        f.write(pretty_minify(soup))
 
     print(f"RSS feed written to {RSS_FILE}")
 
@@ -740,6 +761,13 @@ def generate_atom_feed(events, now):
     updated = soup.new_tag("updated")
     updated.string = now.isoformat()
     feed.append(updated)
+
+    # Feed author
+    author = soup.new_tag("author")
+    author_name = soup.new_tag("name")
+    author_name.string = SITE_TITLE
+    author.append(author_name)
+    feed.append(author)
 
     # categories
     categories = ATOM_CATS.split(",")
@@ -888,7 +916,7 @@ def generate_atom_feed(events, now):
 
     # Write XML output
     with open(ATOM_FILE, "w", encoding="utf-8") as f:
-        f.write(soup.prettify())
+        f.write(pretty_minify(soup))
 
     print(f"ATOM feed written to {ATOM_FILE}")
 

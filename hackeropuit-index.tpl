@@ -56,11 +56,15 @@
       <div id="info-right">
         <span id="lastUpdated">Last edit: {{LASTEDIT}}</span>
         <span id="lastRefresh">Last refresh: {{LASTREFRESH}}</span>
-        <span id="rssFeed"><a href="rss.xml"><img src="rss.gif"></a></span>
       </div>
     </div>
 
     <div id="events" />
+
+    <div id="page-footer">
+      <a href="http://validator.w3.org/feed/check.cgi?url={{RSSFEED}}"><img src="valid-rss-rogers.png" alt="[Valid RSS]" title="Validate my RSS feed" /></a>
+      <a href="http://validator.w3.org/feed/check.cgi?url={{ATOMFEED}}"><img src="valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+    </div>
 
     <script src="hackeropuit.js" />
   </body>
