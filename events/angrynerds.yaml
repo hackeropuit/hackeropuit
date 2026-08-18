@@ -1,0 +1,28 @@
+---
+
+- Name: AngryNerds meetup
+  Location: Haarlem, NL
+  StartDate: 2023-10-31
+  EndDate: 2023-10-31
+  Comment: CybersecConf
+  URL: https://wiccon.nl
+- Name: AngryNerds meetup
+  Location: Deventer, NL
+  StartDate: 2024-04-13
+  EndDate: 2024-04-13
+  Comment: "DAVO Bieren, 16:00"
+  URL: https://davobieren.nl
+- Name: AngryNerds meetup
+  Location: Utrecht, NL
+  StartDate: 2024-07-13
+  EndDate: 2024-07-13
+  Comment: "Bar & Bistro Op Zuid, 16:00"
+  URL: https://opzuidutrecht.nl
+- Name: AngryNerds meetup
+  Location: Leeuwarden, NL
+  StartDate: 2026-08-29
+  EndDate: 2026-08-29
+  Comment: "Het Wapen van Leeuwarden, 16:00"
+  URL: https://hetwapenvanleeuwarden.nl
+
+...
