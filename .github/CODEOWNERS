@@ -2,12 +2,14 @@
 * @sigio
 .github/** @sigio
 # Specific event files for specific people
+events/angrynerds.yaml @elborro
 events/bitlair.yaml @polyfloyd
 events/bornhack.yaml @xesxen
 events/bsdnl.yaml @mischapeters
 events/cfgmgmtcamp.yaml @toshywoshy
 events/eth0.yaml @eloydegen @dekkers
 events/eurobsdcon.yaml @mischapeters
+events/launchpad023.yaml @elborro
 events/hack42.yaml @dvanzuijlekom
 events/hackalot.yaml @xesxen @boekenwuurm
 events/hackerspacesnl.yaml @zeno4ever
