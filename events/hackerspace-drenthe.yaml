@@ -1,0 +1,16 @@
+---
+
+- Name: Onshape workshop
+  Location: Hackerspace Drenthe, Coevorden, NL
+  StartDate: 2026-09-16
+  EndDate: 2026-09-16
+  Comment: 3D modelling with onshape (as preparation for Roboktober).
+  URL: https://www.hackerspace-drenthe.nl/2026/09/01/%f0%9f%9a%80-ontwerp-je-eigen-3d-modellen-en-robots-met-onshape/
+- Name: ROBOktober
+  Location: Hackerspace Drenthe, Coevorden, NL
+  StartDate: 2026-10-07
+  EndDate: 2026-10-28
+  Comment: Building ant-weight robots and join the competition.
+  URL: https://roboktober.nl
+
+...
