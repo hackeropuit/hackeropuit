@@ -2,15 +2,38 @@
 
 - Name: NLNOG Day 2023
   Location: Amsterdam, NL
-  StartDate: 2023-09-26
-  EndDate: 2023-09-26
-  Comment: Networking
   URL: https://nlnog.net
+  StartDate: 2023-09-26
+  Comment: Networking
+  EndDate: 2023-09-26
+
 - Name: NLNOG Day 2025
+  Comment: Networking
   Location: Amsterdam, NL
+  URL: https://nlnog.net
   StartDate: 2025-09-30
   EndDate: 2025-09-30
+
+- Name: Lekker Weer NLNOG
   Comment: Networking
+  Location: Ede, NL
   URL: https://nlnog.net
+  StartDate: 2026-06-05
+  EndDate: 2026-06-05
+
+- Name: NLNOG Day 2026
+  Comment: Networking
+  Location: Hilversum, NL
+  URL: https://nlnog.net
+  StartDate: 2026-09-04
+  EndDate: 2026-09-04
+
+- Name: NLNOG New Years Drink 2027
+  Comment: Borrel
+  Location: T.B.D.
+  URL: https://nlnog.net
+  StartDate: 2027-01-??
+  EndDate: 2027-01-??
+
 
 ...
