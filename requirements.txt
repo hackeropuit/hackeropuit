@@ -1,4 +1,5 @@
-icalendar
+icalendar==6.0.1
 requests
 ruamel.yaml
 simplejson
+bs4
