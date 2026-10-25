@@ -1,5 +1,4 @@
 #!/bin/bash
 
-. ~/.venv/bin/activate
 cd /srv/hackeropuit.nl/hackeropuit
-git -C /srv/hackeropuit.nl/hackeropuit pull && ./update-events.py && ./update-website.py
+git -C /srv/hackeropuit.nl/hackeropuit pull && ~/.venv/bin/python3 ./update-events.py && ~/.venv/bin/python3 ./update-website.py
